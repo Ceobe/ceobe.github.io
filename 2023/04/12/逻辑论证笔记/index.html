@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="author" content="k k">
+
+
+
+
+
+<title>逻辑论证笔记 | 好好学习</title>
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
+
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+
+
+<script src="/lib/jquery.min.js"></script>
+
+
+<script src="/lib/iconify-icon.min.js"></script>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+  }
+</script>
+
+
+<script src="/lib/nprogress/nprogress.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "#de7441",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "#de7441",
+      "border-left-color": "#de7441",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+  })();
+  window.onload = function () {
+    // init iconify icon
+    const isDark = document.documentElement.classList.contains("dark");
+    if (isDark) {
+      $("#toggle-dark").attr("icon", "ri:moon-line");
+    } else {
+      $("#toggle-dark").attr("icon", "ri:sun-line");
+    }
+
+    const toggleDark = () => {
+      console.log("toggle dark");
+      const darkMode = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("hexo-color-scheme", darkMode ? "dark" : "light");
+      $("#toggle-dark").attr("icon", darkMode ? "ri:moon-line" : "ri:sun-line");
+    };
+
+    $("#toggle-dark").click(toggleDark);
+  };
+</script>
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
+  <div class="max-auto">
+    <nav class="flex items-center text-base">
+      <a href="/" class="group">
+        <h2 class="font-medium tracking-tighterp text-l p-2">
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" src="/images/logo.svg" alt="好好学习" />
+          好好学习
+        </h2>
+      </a>
+      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        逻辑论证笔记
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-3">
+        
+          <a class="hidden sm:flex" href="/archives">Posts</a>
+        
+        
+          
+            <a class="w-5 h-5 hidden sm:flex" title="Github" target="_blank" rel="noopener" href="https://github.com/xbmlz">
+              <iconify-icon width="20" icon="ri:github-line"></iconify-icon>
+            </a>
+          
+        
+        <a class="w-5 h-5" title="toggle theme">
+          <iconify-icon width="20" icon="ri:sun-line" id="toggle-dark"></iconify-icon>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
+        </span>
+        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
+        </span>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
+    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+      
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
+          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+  <div class="mask bg-black/20 absolute inset-0"></div>
+</div>
+
+  <main class="p-12">
+    <!-- toc -->
+
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        逻辑论证笔记
+      </h1>
+      <p class="mb-6">
+        
+      </p>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <time>2023-04-12 20:38:16</time>
+          <span class="text-gray-400">·</span>
+          <span>6 min</span>
+          <span class="text-gray-400">·</span>
+          <span>1.8k words</span>
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content mt-10 prose dark:prose-invert post-content">
+    <h3 id="削弱类型：反对（“怼”）"><a href="#削弱类型：反对（“怼”）" class="headerlink" title="削弱类型：反对（“怼”）"></a>削弱类型：反对（“怼”）</h3><h3 id="加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题"><a href="#加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题" class="headerlink" title="加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题"></a>加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题</h3><h3 id="论证三要素：论据→论证→论点"><a href="#论证三要素：论据→论证→论点" class="headerlink" title="论证三要素：论据→论证→论点"></a>论证三要素：论据→论证→论点</h3><p>举例：猪能吃香蕉皮→香蕉皮是湿垃圾</p>
+<p><strong>论点：香蕉皮是湿垃圾→一定有</strong><br><strong>论据：猪能吃香蕉→可能有</strong><br><strong>论证：猪能吃的都是湿垃圾→隐含其中</strong></p>
+<p>【注意】论证的三要素：<strong>论点、论据、论证</strong></p>
+<ol>
+<li>论点：<strong>文段的观点、态度、结论。</strong> 如：“香蕉皮是湿垃圾：</li>
+<li>论据：<strong>支持论点成立的原因、理由、例子。</strong> 如“猪能吃香蕉皮”</li>
+<li>论证：论据讨论的是“猪”，论点讨论的是“湿垃圾”，句子默认“猪能吃的都是湿垃圾”，表明论点和论据之间的关系，即通过论据得到论点，简单理解即可。</li>
+<li>对于论证来说，如想要加强&#x2F;削弱，论点，一定要有，反之无法加强、削弱，且论点经常是考点；有的题目有论据，有的题目没有论据，需要结合题干，论证隐含在论点中。所以做题时应先找论点。</li>
+</ol>
+<h4 id="1-找论点与论据"><a href="#1-找论点与论据" class="headerlink" title="1. 找论点与论据"></a>1. 找论点与论据</h4><ol>
+<li>典型提示词：<strong>所以，结论是，这表明&#x2F;说明&#x2F;意味着，由此推出&#x2F;可知，据此认为</strong></li>
+<li><strong>首尾句原则</strong></li>
+<li>结合提问方式——<strong>问啥找啥</strong></li>
+</ol>
+<h4 id="2-找论据方式："><a href="#2-找论据方式：" class="headerlink" title="2. 找论据方式："></a>2. 找论据方式：</h4><ul>
+<li>论据提示词：<strong>由于，因为，鉴于，根据</strong></li>
+<li>常见位置：<strong>就近原则</strong></li>
+<li>常见形式：<strong>原因、数据、实力、实验或调查内容等</strong></li>
+<li>☆常见位置：<strong>没有提示词时，考虑就近原则。做论证题时，应先找论点，论据往往紧挨着论点。插叙式的文段（开头是论据，中间是不重要的内容，结论是论点）较少，因为出题考察的是逻辑能力，而不是言语理解能力，若前文是实验数据，也属于论据。</strong></li>
+<li>☆常见形式：<strong>原因、数据（如：1965年的美国人下降30%）、事例、实验（如对照实验）或调查内容（如调查发现）等</strong></li>
+<li>【贴士】：下定义、提问题、说现象，“但”之前的都可以略读或不读</li>
+</ul>
+<h4 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h4><ol>
+<li>读提问：判定加强&#x2F;削弱题型</li>
+<li>读题干：找到论点和论据，先找论点，就近找论据，且二者都要详读</li>
+<li>☆做预设：<strong>根据论点和论据特征预设加强&#x2F;削弱方式。若果对文段进行预判，会大概猜测出出题人怎么设置题目，这样做题会更快，且正确率会更高。</strong></li>
+<li>读选项：带着预设确定答案</li>
+</ol>
+<hr>
+<h3 id="削弱题型"><a href="#削弱题型" class="headerlink" title="削弱题型"></a>削弱题型</h3><h4 id="1-削弱之否定论点（力度最强）"><a href="#1-削弱之否定论点（力度最强）" class="headerlink" title="1.削弱之否定论点（力度最强）"></a>1.削弱之否定论点（力度最强）</h4><ul>
+<li>提问方式：最能质疑&#x2F;不能质疑的是</li>
+<li>选项特征：与论点表述的意思相反（证明论点是错的）</li>
+<li>题型特征：<strong>只有论点，没有论据，论点与论据话题不一致</strong></li>
+<li>解题步骤：找出论点论据→分析题干（单论点&#x2F;话题一致）→预设论点→对比选项</li>
+<li>【注意】<ol>
+<li>做题时，要对比择优。若为削弱题，则不能选加强和无关项</li>
+<li>不要总以为题目牵强，要顺着出题人的逻辑思考</li>
+</ol>
+</li>
+<li><strong>易错选项</strong><ol>
+<li><strong>跑题项</strong></li>
+<li><strong>论点有比较关系，只提其中一项</strong></li>
+</ol>
+</li>
+</ul>
+<h4 id="2-削弱之拆桥（力度仅次于削弱论点）"><a href="#2-削弱之拆桥（力度仅次于削弱论点）" class="headerlink" title="2. 削弱之拆桥（力度仅次于削弱论点）"></a>2. 削弱之拆桥（力度仅次于削弱论点）</h4><p>什么是拆桥：<strong>说论点与论据之间没有必然关系</strong><br>【举栗子】：龙龙身材好→龙龙特别帅<br>拆桥：身材好-推不出-特别帅</p>
+<ul>
+<li>选项特征：<strong>包含论点和论据中的关键词，并否定论点与论据之间的必然关系</strong></li>
+<li>什么时候拆？<ol>
+<li><strong>论点和论据话题不一致</strong></li>
+<li><strong>提问方式为“削弱”论证时</strong></li>
+</ol>
+</li>
+<li>【<strong>注意</strong>】<ol>
+<li>做论证题，要倒着看，先找论点，然后就近找论据</li>
+<li><strong>转折之后是重点，前面的内容不重要</strong></li>
+</ol>
+</li>
+<li>【<strong>拆桥选项特征</strong>】<ol>
+<li>论点与论据没有关系</li>
+<li>通过论据无法得到论点</li>
+<li>拆断论点和论据话题不一致的地方</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-削弱之否定论据"><a href="#3-削弱之否定论据" class="headerlink" title="3. 削弱之否定论据"></a>3. 削弱之否定论据</h4><ul>
+<li>题干特征：<ol>
+<li><strong>没有直接削弱论点的选项</strong></li>
+<li><strong>结论是预测（预测无法验证的历史或未来）或建议（典型提示词：建议、应该等）时，经常采用否定论据来削弱</strong></li>
+</ol>
+</li>
+<li>何时削弱论据？<ol>
+<li>论点：<strong>预测类——未来、猜想等；建议类——建议、需要等</strong></li>
+<li>论据：<strong>调查类，实验类</strong></li>
+</ol>
+</li>
+<li>方法：<ol>
+<li><strong>质疑论据</strong></li>
+<li><strong>样本特殊方法错误</strong></li>
+</ol>
+</li>
+<li>【注意】<ol>
+<li><strong>问“不能削弱”，用排除法解题</strong><br>2.<strong>问“不能削弱”论点可能不是那么严谨，只用判断论点的大概倾向即可，和论点倾向不一致的就是加强。</strong></li>
+</ol>
+</li>
+</ul>
+<h4 id="4-削弱之因果倒置"><a href="#4-削弱之因果倒置" class="headerlink" title="4. 削弱之因果倒置"></a>4. 削弱之因果倒置</h4><ul>
+<li>题干特征：<strong>论点中包含因果关系</strong></li>
+<li>选项特征：<strong>将论点的原因和结果颠倒</strong></li>
+<li>特征：<strong>论点包含因果关系，…是…的原因、…导致&#x2F;使得…、…增加&#x2F;降低&#x2F;加强&#x2F;减轻&#x2F;有助于…</strong><br>【举栗子】：研究人员认为，喝奶茶是导致体重增加的原因<br>因果倒置：胖子才爱喝奶茶<br><strong>一般情况下，出现因果倒置的选项，优选</strong></li>
+</ul>
+<h4 id="5-削弱之另有他因"><a href="#5-削弱之另有他因" class="headerlink" title="5. 削弱之另有他因"></a>5. 削弱之另有他因</h4><ul>
+<li>题干特征：<strong>论点中包含因果关系</strong></li>
+<li>选项特征：在原来的基础上，加入了一个新的原因也可能推出结果</li>
+<li><strong>☆解题步骤：判断题型→找出论点论据→预设答案→对比选项</strong></li>
+</ul>
+<hr>
+<h3 id="加强题型"><a href="#加强题型" class="headerlink" title="加强题型"></a>加强题型</h3><h4 id="1-加强之搭桥（力度最强）"><a href="#1-加强之搭桥（力度最强）" class="headerlink" title="1. 加强之搭桥（力度最强）"></a>1. 加强之搭桥（力度最强）</h4><ul>
+<li>题干特征：<ol>
+<li>论点和论据讨论的话题不一致</li>
+<li>提问方式为前提、假设时，优先考虑搭桥</li>
+</ol>
+</li>
+<li>选项特征：<strong>同时包含论点和论据中的关键词，并肯定论点和论据之间的必然联系</strong></li>
+<li>什么是搭桥：说论点和论据之间有联系，建立关系<br>【举栗子】楼市成交量在增长，因此楼市价格会上涨<br>1.楼市成交量的增长量会带动楼价的上涨<br>2.楼市成交量会影响楼市价格</li>
+<li>题型特征：<ol>
+<li>论点与论据话题不一致</li>
+<li>提问方式为前提、假设、必要条件，加强论证，优先考虑搭桥选项特征，同时包含论点和论据中的关键词，并肯定论点和论据之间的关系</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-加强之补充论据（最常考）"><a href="#2-加强之补充论据（最常考）" class="headerlink" title="2. 加强之补充论据（最常考）"></a>2. 加强之补充论据（最常考）</h4><ol>
+<li>必要条件：<strong>选项为论点成立的必要条件</strong></li>
+</ol>
+<ul>
+<li>题干特征：提问方式为前提、假设、必要条件，且无搭桥选项</li>
+</ul>
+<ol start="2">
+<li>解释：说明论点成立的原因</li>
+<li>举例：证明论点成立的例子<br>【举栗子】论点：小明和小红可以结婚<br>A：小明和小红很恩爱 B：小明和小红都符合结婚的法定年龄</li>
+</ol>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="削弱题型-1"><a href="#削弱题型-1" class="headerlink" title="削弱题型"></a>削弱题型</h4><ul>
+<li>论点论据话题一致或只有论点：否论点</li>
+<li>论点论据话题不一致：拆桥</li>
+<li>论点是预测、建议类；论据是调查类、实验类：否论据</li>
+<li>论点有因果，考虑因果倒置和他因削弱</li>
+<li>力度比较：否定论点&gt;拆桥&gt;否定论据&gt;他因削弱</li>
+</ul>
+<h4 id="加强题型-1"><a href="#加强题型-1" class="headerlink" title="加强题型"></a>加强题型</h4><ul>
+<li>文段中只有论点、无论据，文段的论点和论据话题一致，正常情况下不考虑必要条件，无法搭桥的时候考虑</li>
+<li>加强力度：搭桥、必要条件&gt;解释&gt;举例</li>
+</ul>
+<h3 id="TheEnd"><a href="#TheEnd" class="headerlink" title="TheEnd"></a>TheEnd</h3>
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    
+  </div>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      
+    </div>
+    <div>
+      
+        <a href="/2023/04/12/%E8%BE%A8%E6%9E%90%E9%A2%98%E8%A7%A3%E9%A2%98%E6%8A%80%E5%B7%A7/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          辨析题解题技巧
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    
+
+  </div>
+</section>
+
+  </main>
+  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+  <!-- busuanzi -->
+  
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Busuanzi Analytics -->
+<div class="flex items-center gap-2">
+  <span>Visitor Count</span>
+  <span id="busuanzi_value_site_uv"></span>
+  <span>Totalview</span>
+  <span id="busuanzi_value_site_pv"></span>
+</div>
+<!-- End Busuanzi Analytics -->
+
+
+  <!-- copyright -->
+  <div class="flex items-center gap-2">
+    <span>© 2022</span>
+    <iconify-icon width="18" icon="emojione-monotone:maple-leaf" ></iconify-icon>
+    <a href="https://github.com/xbmlz" target="_blank" rel="noopener noreferrer">xbmlz</a>
+  </div>
+  <!-- powered by -->
+  <div class="flex items-center gap-2">
+    <span>Powered by</span>
+    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <span>&</span>
+    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+  </div>
+
+</footer>
+
+  <iconify-icon class="fixed right-4 bottom-10 z-100 opacity-0" width="24" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+  
+<script src="/lib/clipboard.min.js"></script>
+
+
+
+<script src="/js/main.js"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(() => {
+    const maraidConfig = {
+      theme: "default",
+      logLevel: 3,
+      flowchart: { curve: "linear" },
+      gantt: { axisFormat: "%m/%d/%Y" },
+      sequence: { actorMargin: 50 },
+    };
+    mermaid.initialize(maraidConfig);
+  });
+</script>
+
+
+
+<script src="/lib/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    $('.post-content').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function(){
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // options
+    })
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+</body>
+
+</html>
