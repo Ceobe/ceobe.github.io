@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="author" content="k k">
+
+
+
+
+
+<title>论证题解题方法 | 好好学习</title>
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
+
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+
+
+<script src="/lib/jquery.min.js"></script>
+
+
+<script src="/lib/iconify-icon.min.js"></script>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+  }
+</script>
+
+
+<script src="/lib/nprogress/nprogress.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "#de7441",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "#de7441",
+      "border-left-color": "#de7441",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+  })();
+  window.onload = function () {
+    // init iconify icon
+    const isDark = document.documentElement.classList.contains("dark");
+    if (isDark) {
+      $("#toggle-dark").attr("icon", "ri:moon-line");
+    } else {
+      $("#toggle-dark").attr("icon", "ri:sun-line");
+    }
+
+    const toggleDark = () => {
+      console.log("toggle dark");
+      const darkMode = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("hexo-color-scheme", darkMode ? "dark" : "light");
+      $("#toggle-dark").attr("icon", darkMode ? "ri:moon-line" : "ri:sun-line");
+    };
+
+    $("#toggle-dark").click(toggleDark);
+  };
+</script>
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
+  <div class="max-auto">
+    <nav class="flex items-center text-base">
+      <a href="/" class="group">
+        <h2 class="font-medium tracking-tighterp text-l p-2">
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" src="/images/logo.svg" alt="好好学习" />
+          好好学习
+        </h2>
+      </a>
+      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        百化分
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-3">
+        
+          <a class="hidden sm:flex" href="/archives">Posts</a>
+        
+        
+          
+            <a class="w-5 h-5 hidden sm:flex" title="Github" target="_blank" rel="noopener" href="https://github.com/xbmlz">
+              <iconify-icon width="20" icon="ri:github-line"></iconify-icon>
+            </a>
+          
+        
+        <a class="w-5 h-5" title="toggle theme">
+          <iconify-icon width="20" icon="ri:sun-line" id="toggle-dark"></iconify-icon>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
+        </span>
+        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
+        </span>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
+    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+      
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
+          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+  <div class="mask bg-black/20 absolute inset-0"></div>
+</div>
+
+  <main class="p-12">
+    <!-- toc -->
+
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        论证题解题方法
+      </h1>
+      <p class="mb-6">
+        
+      </p>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <time>2023-04-12 20:49:06</time>
+          <span class="text-gray-400">·</span>
+          <span>5 min</span>
+          <span class="text-gray-400">·</span>
+          <span>1.7k words</span>
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content mt-10 prose dark:prose-invert post-content">
+    <h1 id="事业单位论证题中常见的几种错误及应答办法"><a href="#事业单位论证题中常见的几种错误及应答办法" class="headerlink" title="事业单位论证题中常见的几种错误及应答办法"></a>事业单位论证题中常见的几种错误及应答办法</h1><h2 id="1-论点错误（2个）"><a href="#1-论点错误（2个）" class="headerlink" title="1. 论点错误（2个）"></a>1. 论点错误（2个）</h2><h3 id="1-偷换概念"><a href="#1-偷换概念" class="headerlink" title="1. 偷换概念"></a>1. 偷换概念</h3><p><strong>定义：</strong> 是指在论证中把不同概念当作一个概念来使用的逻辑错误，实际上是改变了概念的修饰语，适用范围所指对象等具体内涵。<br><strong>识别：</strong> 论据与论点中的概念不一致<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为“。。。”和“。。。”概念不同，属于偷换概念。</p>
+<h3 id="2-绝对化表述"><a href="#2-绝对化表述" class="headerlink" title="2. 绝对化表述"></a>2. 绝对化表述</h3><p><strong>定义：</strong> 是指在论证中，论点部分的语句表达过于绝对，容易造成一种判断上的过于绝对化，从而引发一种判断不准确的错误。<br><strong>识别：</strong> 一定、绝对、根本、唯一、必然、凡是绝对化词<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论点中“。。。”一词太绝对，而论据中“。。。”只是“。。。”的一个因素（方面&#x2F;条件&#x2F;类别等）或一种情况，而非绝对因素，属于绝对化表述。</p>
+<h2 id="2-论据错误（4个）"><a href="#2-论据错误（4个）" class="headerlink" title="2. 论据错误（4个）"></a>2. 论据错误（4个）</h2><h3 id="论据错误"><a href="#论据错误" class="headerlink" title="论据错误"></a>论据错误</h3><ul>
+<li>论据不充分</li>
+<li>论据不相干（未从事实出发）<ol>
+<li>诉诸权威</li>
+<li>诉诸无知</li>
+<li>诉诸情感</li>
+<li>诉诸众人</li>
+</ol>
+</li>
+<li>预期理由</li>
+</ul>
+<h3 id="1-论据不充分（影响因素缺失、数据缺乏）"><a href="#1-论据不充分（影响因素缺失、数据缺乏）" class="headerlink" title="1. 论据不充分（影响因素缺失、数据缺乏）"></a>1. 论据不充分（影响因素缺失、数据缺乏）</h3><p><strong>定义：</strong> 论据在论证论点时起到一定作用，论据不充分是指因论据缺失、不足以完全支撑论点的逻辑错误。<br><strong>识别：</strong> 论据缺失<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中只提到了“。。。”，要让论点成立还需补充“。。。”方面的内容，属于论据不充分。</p>
+<h3 id="2-论据不相干"><a href="#2-论据不相干" class="headerlink" title="2. 论据不相干"></a>2. 论据不相干</h3><p><strong>定义：</strong> 论据与论点在逻辑上缺乏相互关系<br><strong>错误类别</strong> 诉诸权威、诉诸无知、诉诸众人、诉诸情感</p>
+<ul>
+<li><p><strong>诉诸权威（领域相同、领域不同）</strong><br><strong>识别：</strong> 某教授、某学者、某古人说的话<br><strong>答题格式：（不同领域）</strong><br><strong>A：</strong> 第<em>段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中某某教授&#x2F;学者&#x2F;专家在。。。领域可能具有权威性，而论点中涉及的是“。。。”领域，在这一领域，专家&#x2F;教授&#x2F;学者的观点不一定正确，属于诉诸权威。<br><strong>答题格式：（相同领域）</strong><br><strong>A：</strong> 第</em>段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为某某教授&#x2F;学者&#x2F;专家的观点看似具有权威性，但没有进行科学论证*具有主观意识），研究成果也不一定可靠，属于诉诸权威。</p>
+</li>
+<li><p><strong>诉诸无知</strong><br><strong>定义：</strong> 是以某一命题的未被证明或不能证明为据。<br><strong>识别：</strong> 尚未证明&#x2F;不能证明。。。的好与坏、有与无<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中“。。。”未被证明或不能证明，无法退出论点，属于诉诸无知。</p>
+</li>
+<li><p><strong>预期理由（可能推必然）</strong><br><strong>定义：</strong> 可能推必然<br><strong>识别：</strong> 可能（或然、不一定、不确定等）。。。推必然（一定、绝对、必须、再也不会等）。。。。<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中“。。。”表示可能性，推不出“。。。”这种必然性结论，属于预期理由。</p>
+</li>
+</ul>
+<h2 id="3-分析论证错误"><a href="#3-分析论证错误" class="headerlink" title="3. 分析论证错误"></a>3. 分析论证错误</h2><h3 id="论据错误-1"><a href="#论据错误-1" class="headerlink" title="论据错误"></a>论据错误</h3><ol>
+<li>以偏概全</li>
+<li>统计学谬误<ol>
+<li>△ 数据运算错误</li>
+<li>☆ 平均数误用</li>
+<li>☆ 忽视数据变化</li>
+</ol>
+</li>
+<li>类比不当</li>
+<li>强拉因果</li>
+<li>因果倒置</li>
+<li>因果矛盾</li>
+<li>非黑即白</li>
+</ol>
+<h3 id="1-以偏概全"><a href="#1-以偏概全" class="headerlink" title="1.以偏概全"></a>1.以偏概全</h3><p><strong>识别：</strong> 个例、多例、部分地区特例推出普遍性结论<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为“。。。”不具有代表性（是部分情况），不足以概括总体“。。。”的特征，属于以偏概全。</p>
+<h3 id="2-统计学谬误（影响因素缺失、数据缺乏）"><a href="#2-统计学谬误（影响因素缺失、数据缺乏）" class="headerlink" title="2. 统计学谬误（影响因素缺失、数据缺乏）"></a>2. 统计学谬误（影响因素缺失、数据缺乏）</h3><ul>
+<li><h3 id="1-数据运算错误"><a href="#1-数据运算错误" class="headerlink" title="1. 数据运算错误"></a>1. 数据运算错误</h3></li>
+</ul>
+<p><strong>识别：</strong> 数据运算时未考虑实际情况<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为“。。。”在运算时未考虑实际情况，导致结论错误，属于统计学谬误。</p>
+<ul>
+<li><h3 id="2-平均数误用"><a href="#2-平均数误用" class="headerlink" title="2. 平均数误用"></a>2. 平均数误用</h3></li>
+</ul>
+<p><strong>识别：</strong> ，将平均数的性质分配到总体的个体<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中只提到了“。。。”，要让论点成立还需补充“。。。”方面的内容，属于统计学谬误。</p>
+<ul>
+<li><h3 id="3-忽视数据变化"><a href="#3-忽视数据变化" class="headerlink" title="3. 忽视数据变化"></a>3. 忽视数据变化</h3></li>
+</ul>
+<p><strong>识别：</strong> 用历史数据变化的趋势去预测未来数据<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为历史数据的变化趋势为。。。，但不代表未来数据的变化，无法预测未来数据，属于统计学谬误。</p>
+<h3 id="3-类比不当"><a href="#3-类比不当" class="headerlink" title="3. 类比不当"></a>3. 类比不当</h3><p><strong>识别：</strong> 两类表面相似，本质不同的事物简单&#x2F;机械化类比<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中“。。。”与论点中“。。。”表面相似，但本质上不具有可比性，不能简单类比，属于类比不当。</p>
+<h3 id="4-强拉因果"><a href="#4-强拉因果" class="headerlink" title="4. 强拉因果"></a>4. 强拉因果</h3><p><strong>识别：</strong> 论点与论据之间没有必然因果关系<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论点“。。。”与论据“。。。”没有必然的因果关系，属于强拉因果。<br><strong>注意！</strong> 出现例子推普遍结论是，需要分析例子与主题是否相关，相关的属于以偏概全，不相关的属于强拉因果。</p>
+<h3 id="5-因果倒置"><a href="#5-因果倒置" class="headerlink" title="5. 因果倒置"></a>5. 因果倒置</h3><p><strong>识别：</strong> 论据中的原因（结果）变为论点中的结果（原因）<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中由“。。。”推出“。。。”，而结论则因果颠倒，属于因果倒置。</p>
+<h3 id="6-因果矛盾"><a href="#6-因果矛盾" class="headerlink" title="6. 因果矛盾"></a>6. 因果矛盾</h3><p><strong>识别：</strong> 反义词<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论据中由“。。。”与结论中“。。。”相互冲突或相互矛盾，属于因果矛盾。</p>
+<h3 id="7-非黑即白"><a href="#7-非黑即白" class="headerlink" title="7. 非黑即白"></a>7. 非黑即白</h3><p><strong>识别：</strong> 两个极端二选一（不是&#x2F;除了。。。就是。。。；A%+B%&#x3D;100%）<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为除了“。。。（黑和白）”之外，还有。。。第三中情况，推不出极端结论，属于非黑即白。</p>
+
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    
+  </div>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      
+        <a href="/2023/04/12/%E7%99%BE%E5%8C%96%E5%88%86/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
+          百化分
+        </a>
+      
+    </div>
+    <div>
+      
+        <a href="/2023/04/12/%E9%80%BB%E8%BE%91%E8%AE%BA%E8%AF%81%E7%AC%94%E8%AE%B0/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          逻辑论证笔记
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    
+
+  </div>
+</section>
+
+  </main>
+  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+  <!-- busuanzi -->
+  
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Busuanzi Analytics -->
+<div class="flex items-center gap-2">
+  <span>Visitor Count</span>
+  <span id="busuanzi_value_site_uv"></span>
+  <span>Totalview</span>
+  <span id="busuanzi_value_site_pv"></span>
+</div>
+<!-- End Busuanzi Analytics -->
+
+
+  <!-- copyright -->
+  <div class="flex items-center gap-2">
+    <span>© 2022</span>
+    <iconify-icon width="18" icon="emojione-monotone:maple-leaf" ></iconify-icon>
+    <a href="https://github.com/xbmlz" target="_blank" rel="noopener noreferrer">xbmlz</a>
+  </div>
+  <!-- powered by -->
+  <div class="flex items-center gap-2">
+    <span>Powered by</span>
+    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <span>&</span>
+    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+  </div>
+
+</footer>
+
+  <iconify-icon class="fixed right-4 bottom-10 z-100 opacity-0" width="24" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+  
+<script src="/lib/clipboard.min.js"></script>
+
+
+
+<script src="/js/main.js"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(() => {
+    const maraidConfig = {
+      theme: "default",
+      logLevel: 3,
+      flowchart: { curve: "linear" },
+      gantt: { axisFormat: "%m/%d/%Y" },
+      sequence: { actorMargin: 50 },
+    };
+    mermaid.initialize(maraidConfig);
+  });
+</script>
+
+
+
+<script src="/lib/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    $('.post-content').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function(){
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // options
+    })
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+</body>
+
+</html>
