@@ -12,6 +12,8 @@
   <meta name="author" content="k k">
 
 
+  <meta name="subtitle" content="知是行之始，行是知之成。">
+
 
 
 
@@ -148,7 +150,7 @@
     <nav class="flex items-center text-base">
       <a href="/" class="group">
         <h2 class="font-medium tracking-tighterp text-l p-2">
-          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" src="/images/logo.svg" alt="知行合一" />
           知行合一
         </h2>
       </a>
@@ -162,8 +164,8 @@
         
         
           
-            <a class="w-5 h-5 hidden sm:flex" title="Github" target="_blank" rel="noopener" href="https://github.com/xbmlz">
-              <iconify-icon width="20" icon="ri:github-line"></iconify-icon>
+            <a class="w-5 h-5 hidden sm:flex" title="Weibo" target="_blank" rel="noopener" href="https://weibo.com/u/3213212102">
+              <iconify-icon width="20" icon="ri:weibo-line"></iconify-icon>
             </a>
           
         
@@ -202,7 +204,7 @@
       知行合一
     </h1>
     <p class="text-gray-500 mt-2">
-      
+      知是行之始，行是知之成。
     </p>
   </div>
   
@@ -235,24 +237,13 @@
 
   </main>
   <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
-  <!-- busuanzi -->
-  
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- Busuanzi Analytics -->
-<div class="flex items-center gap-2">
-  <span>Visitor Count</span>
-  <span id="busuanzi_value_site_uv"></span>
-  <span>Totalview</span>
-  <span id="busuanzi_value_site_pv"></span>
-</div>
-<!-- End Busuanzi Analytics -->
 
-
-  <!-- copyright -->
   <div class="flex items-center gap-2">
-    <span>© 2022</span>
-    <iconify-icon width="18" icon="emojione-monotone:maple-leaf" ></iconify-icon>
-    <a href="https://github.com/xbmlz" target="_blank" rel="noopener noreferrer">xbmlz</a>
+    <span>© 2023</span>
+    <iconify-icon width="18" icon="emojione-monotone:star" ></iconify-icon>
+    <span>Ceobe</span>
+    <!-- <a href="https://github.com/Ceobe" target="_blank" rel="noopener noreferrer">Ceobe</a> -->
+    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">皖ICP备16024803号-12</a>
   </div>
   <!-- powered by -->
   <div class="flex items-center gap-2">
@@ -269,37 +260,6 @@
 <script src="/js/main.js"></script>
 
 
-  <script>
-    $(document).ready(function () {
-      const mapleCount = "10";
-      const speed = "0.5";
-      const mapleEl = document.getElementById("maple");
-      const maples = Array.from({ length: mapleCount }).map(() => {
-        const maple = document.createElement("div");
-        const scale = Math.random() * 0.5 + 0.5;
-        const offset = Math.random() * 2 - 1;
-        const x = Math.random() * mapleEl.clientWidth;
-        const y = -Math.random() * mapleEl.clientHeight;
-        const duration = 10 / speed;
-        const delay = -duration;
-        maple.className = "maple";
-        maple.style.width = `${24 * scale}px`;
-        maple.style.height = `${24 * scale}px`;
-        maple.style.left = `${x}px`;
-        maple.style.top = `${y}px`;
-        maple.style.setProperty("--maple-fall-offset", offset);
-        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
-        maple.style.animation = `fall ${duration}s linear infinite`;
-        maple.style.animationDelay = `${delay}s`;
-        mapleEl.appendChild(maple)
-        return maple
-      })
-    });
-  </script>
-  
-
-
-  <div class="w-screen h-screen -z-999" id="maple"></div>
 </body>
 
 </html>
