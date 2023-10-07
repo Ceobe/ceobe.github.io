@@ -111,8 +111,8 @@
     // toggle dark mode
     function toggleDark() {
       let isDark = document.documentElement.classList.contains("dark");
-      isDark = !isDark;
       const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      isDark = !isDark;
       document.documentElement.classList.toggle("dark", isDark);
       $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
       if (prefersDark === isDark) {
@@ -123,6 +123,7 @@
       toggleGiscusTheme();
     }
     $("#toggle-dark").click(toggleDark);
+
     // listen dark mode change
     window
       .matchMedia("(prefers-color-scheme: dark)")
@@ -144,13 +145,13 @@
 
 
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
   <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
   <div class="max-auto">
     <nav class="flex items-center text-base">
       <a href="/" class="group">
         <h2 class="font-medium tracking-tighterp text-l p-2">
-          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" src="/images/logo.svg" alt="知行合一" />
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
           知行合一
         </h2>
       </a>
@@ -169,6 +170,9 @@
             </a>
           
         
+        <a class="w-5 h-5 hidden sm:flex" title="Weibo" href="rss2.xml">
+          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
+        </a>
         <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
           <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
         </a>
@@ -197,7 +201,7 @@
   <div class="mask bg-black/20 absolute inset-0"></div>
 </div>
 
-  <main class="p-12">
+  <main class="pt-14">
     <!-- css -->
 
 <link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
@@ -218,22 +222,29 @@
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
         论证题解题方法
       </h1>
-      <p class="mb-6">
-        
-      </p>
       <div>
         <section class="flex items-center gap-3 text-sm">
-          <time>2023-04-12 20:49:06</time>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time>2023-04-12</time>
+          </span>
           <span class="text-gray-400">·</span>
-          <span>5 min</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span>5 min</span>
+          </span>
           <span class="text-gray-400">·</span>
-          <span>1.7k words</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span>1.7k words</span>
+          </span>
+          
         </section>
       </div>
     </div>
   </header>
   <!-- content -->
-  <article class="post-content mt-10 prose dark:prose-invert post-content">
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
     <h1 id="事业单位论证题中常见的几种错误及应答办法"><a href="#事业单位论证题中常见的几种错误及应答办法" class="headerlink" title="事业单位论证题中常见的几种错误及应答办法"></a>事业单位论证题中常见的几种错误及应答办法</h1><h2 id="1-论点错误（2个）"><a href="#1-论点错误（2个）" class="headerlink" title="1. 论点错误（2个）"></a>1. 论点错误（2个）</h2><h3 id="1-偷换概念"><a href="#1-偷换概念" class="headerlink" title="1. 偷换概念"></a>1. 偷换概念</h3><p><strong>定义：</strong> 是指在论证中把不同概念当作一个概念来使用的逻辑错误，实际上是改变了概念的修饰语，适用范围所指对象等具体内涵。<br><strong>识别：</strong> 论据与论点中的概念不一致<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为“。。。”和“。。。”概念不同，属于偷换概念。</p>
 <h3 id="2-绝对化表述"><a href="#2-绝对化表述" class="headerlink" title="2. 绝对化表述"></a>2. 绝对化表述</h3><p><strong>定义：</strong> 是指在论证中，论点部分的语句表达过于绝对，容易造成一种判断上的过于绝对化，从而引发一种判断不准确的错误。<br><strong>识别：</strong> 一定、绝对、根本、唯一、必然、凡是绝对化词<br><strong>答题格式：</strong><br><strong>A：</strong> 第*段由”….”推不出”…”。或者第几段由“。。。”推出“。。。”存在论证错误。<br><strong>B：</strong> 因为论点中“。。。”一词太绝对，而论据中“。。。”只是“。。。”的一个因素（方面&#x2F;条件&#x2F;类别等）或一种情况，而非绝对因素，属于绝对化表述。</p>
 <h2 id="2-论据错误（4个）"><a href="#2-论据错误（4个）" class="headerlink" title="2. 论据错误（4个）"></a>2. 论据错误（4个）</h2><h3 id="论据错误"><a href="#论据错误" class="headerlink" title="论据错误"></a>论据错误</h3><ul>
@@ -423,12 +434,11 @@
   <!-- 访问统计busuanzi、copyright -->
   
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- Busuanzi Analytics、copyright -->
+<!-- Busuanzi Analytics -->
 <div class="flex items-center gap-2">
-  <span>© 2023 ZXHY</span>
-  <span>游客数</span>
+  <span>Visitors</span>
   <span id="busuanzi_value_site_uv"></span>
-  <span>访问量</span>
+  <span>Page Views</span>
   <span id="busuanzi_value_site_pv"></span>
 </div>
 <!-- End Busuanzi Analytics -->
@@ -449,11 +459,47 @@
 
 </footer>
 
-  <iconify-icon class="fixed right-4 bottom-10 z-100 opacity-0" width="24" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+    <span class="flex justify-center items-center text-sm">
+      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <span id="scrollpercent"><span>0</span> %</span>
+    </span>
+  </div>
   
 <script src="/js/main.js"></script>
 
 
+  <script>
+    $(document).ready(function () {
+      const mapleCount = "10";
+      const speed = "0.5";
+      const mapleEl = document.getElementById("maple");
+      const maples = Array.from({ length: mapleCount }).map(() => {
+        const maple = document.createElement("div");
+        const scale = Math.random() * 0.5 + 0.5;
+        const offset = Math.random() * 2 - 1;
+        const x = Math.random() * mapleEl.clientWidth;
+        const y = -Math.random() * mapleEl.clientHeight;
+        const duration = 10 / speed;
+        const delay = -duration;
+        maple.className = "maple";
+        maple.style.width = `${24 * scale}px`;
+        maple.style.height = `${24 * scale}px`;
+        maple.style.left = `${x}px`;
+        maple.style.top = `${y}px`;
+        maple.style.setProperty("--maple-fall-offset", offset);
+        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
+        maple.style.animation = `fall ${duration}s linear infinite`;
+        maple.style.animationDelay = `${delay}s`;
+        mapleEl.appendChild(maple)
+        return maple
+      })
+    });
+  </script>
+  
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
 </body>
 
 </html>

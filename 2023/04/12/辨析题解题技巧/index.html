@@ -111,8 +111,8 @@
     // toggle dark mode
     function toggleDark() {
       let isDark = document.documentElement.classList.contains("dark");
-      isDark = !isDark;
       const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      isDark = !isDark;
       document.documentElement.classList.toggle("dark", isDark);
       $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
       if (prefersDark === isDark) {
@@ -123,6 +123,7 @@
       toggleGiscusTheme();
     }
     $("#toggle-dark").click(toggleDark);
+
     // listen dark mode change
     window
       .matchMedia("(prefers-color-scheme: dark)")
@@ -144,13 +145,13 @@
 
 
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
   <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
   <div class="max-auto">
     <nav class="flex items-center text-base">
       <a href="/" class="group">
         <h2 class="font-medium tracking-tighterp text-l p-2">
-          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" src="/images/logo.svg" alt="知行合一" />
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
           知行合一
         </h2>
       </a>
@@ -169,6 +170,9 @@
             </a>
           
         
+        <a class="w-5 h-5 hidden sm:flex" title="Weibo" href="rss2.xml">
+          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
+        </a>
         <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
           <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
         </a>
@@ -197,7 +201,7 @@
   <div class="mask bg-black/20 absolute inset-0"></div>
 </div>
 
-  <main class="p-12">
+  <main class="pt-14">
     <!-- css -->
 
 <link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
@@ -218,22 +222,29 @@
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
         辨析题解题技巧
       </h1>
-      <p class="mb-6">
-        
-      </p>
       <div>
         <section class="flex items-center gap-3 text-sm">
-          <time>2023-05-06 22:22:02</time>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time>2023-05-06</time>
+          </span>
           <span class="text-gray-400">·</span>
-          <span>2 min</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span>2 min</span>
+          </span>
           <span class="text-gray-400">·</span>
-          <span>691 words</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span>691 words</span>
+          </span>
+          
         </section>
       </div>
     </div>
   </header>
   <!-- content -->
-  <article class="post-content mt-10 prose dark:prose-invert post-content">
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
     <h3 id="辨析题解题思路"><a href="#辨析题解题思路" class="headerlink" title="辨析题解题思路"></a>辨析题解题思路</h3><h3 id="辨析题：对下面的句子做出正误判断，并进行简单解析，不超过-XX-字。"><a href="#辨析题：对下面的句子做出正误判断，并进行简单解析，不超过-XX-字。" class="headerlink" title="辨析题：对下面的句子做出正误判断，并进行简单解析，不超过 XX 字。"></a>辨析题：对下面的句子做出正误判断，并进行简单解析，不超过 XX 字。</h3><h3 id="正误判断：注意联系上下文理解意思"><a href="#正误判断：注意联系上下文理解意思" class="headerlink" title="正误判断：注意联系上下文理解意思"></a>正误判断：注意联系上下文理解意思</h3><h3 id="答案组织：正误判断-（概括题目表述）-定位原文所在段落-找出原句进行对比-得出结论"><a href="#答案组织：正误判断-（概括题目表述）-定位原文所在段落-找出原句进行对比-得出结论" class="headerlink" title="答案组织：正误判断+（概括题目表述）+定位原文所在段落+找出原句进行对比+得出结论"></a>答案组织：正误判断+（概括题目表述）+定位原文所在段落+找出原句进行对比+得出结论</h3><h4 id="【例】对下面的句子做出正误判断，并进行简单解析，不超过-150-字。"><a href="#【例】对下面的句子做出正误判断，并进行简单解析，不超过-150-字。" class="headerlink" title="【例】对下面的句子做出正误判断，并进行简单解析，不超过 150 字。"></a>【例】对下面的句子做出正误判断，并进行简单解析，不超过 150 字。</h4><p>安德烈·海姆和康斯坦丁·诺沃肖洛夫因为推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知，还获得了 2010 年度诺贝尔物理学奖。<br>石墨烯（Graphene）是一种从石墨材料中剥离出来，由单层碳原子构成的六角形蜂巢晶格的平面二维碳材料。实际上，石墨烯本来就存在于自然界中，只是难以剥离出单层结构。曾经，物理学家普遍认为，热力学膨胀不允许任何二维晶体在有限温度下存在，石墨烯不过是一种假设性结构。受此理论影响，科学家们对从石墨中分离出单层独立存在的石墨烯持悲观态度。2004 年，英国曼彻斯特大学安德烈·海姆和康斯坦丁·诺沃肖洛夫的研究改变了人们的认知，他们发现了一种得到石墨薄片的简单方法——从高定向热解石墨中剥离出石墨片，将薄片的两面粘在一种特殊胶带上，撕开胶带，就能把石墨片一分为二，不断重复这样的操作，最后就得到了仅由一层碳原子构成的薄片，即石墨烯，该方法及单层石墨烯的获取震撼了凝聚体物理学界。随后三年内，安德烈·海姆和康斯坦丁·诺沃肖洛夫在单层和双层石墨烯体系中分别发现了整数量子霍尔效应及常温条件下的量子霍尔效应，这为石墨烯的工业化生产进一步铺垫了理论和方法道路，两人也因此获得了 2010 年度诺贝尔物理学奖。</p>
 <h4 id="参考答案"><a href="#参考答案" class="headerlink" title="参考答案"></a>参考答案</h4><h4 id="错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第-1-段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。"><a href="#错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第-1-段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。" class="headerlink" title="错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第 1 段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。"></a>错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第 1 段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。</h4>
   </article>
@@ -364,12 +375,11 @@
   <!-- 访问统计busuanzi、copyright -->
   
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- Busuanzi Analytics、copyright -->
+<!-- Busuanzi Analytics -->
 <div class="flex items-center gap-2">
-  <span>© 2023 ZXHY</span>
-  <span>游客数</span>
+  <span>Visitors</span>
   <span id="busuanzi_value_site_uv"></span>
-  <span>访问量</span>
+  <span>Page Views</span>
   <span id="busuanzi_value_site_pv"></span>
 </div>
 <!-- End Busuanzi Analytics -->
@@ -390,11 +400,47 @@
 
 </footer>
 
-  <iconify-icon class="fixed right-4 bottom-10 z-100 opacity-0" width="24" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+    <span class="flex justify-center items-center text-sm">
+      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <span id="scrollpercent"><span>0</span> %</span>
+    </span>
+  </div>
   
 <script src="/js/main.js"></script>
 
 
+  <script>
+    $(document).ready(function () {
+      const mapleCount = "10";
+      const speed = "0.5";
+      const mapleEl = document.getElementById("maple");
+      const maples = Array.from({ length: mapleCount }).map(() => {
+        const maple = document.createElement("div");
+        const scale = Math.random() * 0.5 + 0.5;
+        const offset = Math.random() * 2 - 1;
+        const x = Math.random() * mapleEl.clientWidth;
+        const y = -Math.random() * mapleEl.clientHeight;
+        const duration = 10 / speed;
+        const delay = -duration;
+        maple.className = "maple";
+        maple.style.width = `${24 * scale}px`;
+        maple.style.height = `${24 * scale}px`;
+        maple.style.left = `${x}px`;
+        maple.style.top = `${y}px`;
+        maple.style.setProperty("--maple-fall-offset", offset);
+        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
+        maple.style.animation = `fall ${duration}s linear infinite`;
+        maple.style.animationDelay = `${delay}s`;
+        mapleEl.appendChild(maple)
+        return maple
+      })
+    });
+  </script>
+  
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
 </body>
 
 </html>

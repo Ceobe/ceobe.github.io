@@ -111,8 +111,8 @@
     // toggle dark mode
     function toggleDark() {
       let isDark = document.documentElement.classList.contains("dark");
-      isDark = !isDark;
       const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      isDark = !isDark;
       document.documentElement.classList.toggle("dark", isDark);
       $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
       if (prefersDark === isDark) {
@@ -123,6 +123,7 @@
       toggleGiscusTheme();
     }
     $("#toggle-dark").click(toggleDark);
+
     // listen dark mode change
     window
       .matchMedia("(prefers-color-scheme: dark)")
@@ -144,13 +145,13 @@
 
 
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
   <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
   <div class="max-auto">
     <nav class="flex items-center text-base">
       <a href="/" class="group">
         <h2 class="font-medium tracking-tighterp text-l p-2">
-          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" src="/images/logo.svg" alt="知行合一" />
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
           知行合一
         </h2>
       </a>
@@ -169,6 +170,9 @@
             </a>
           
         
+        <a class="w-5 h-5 hidden sm:flex" title="Weibo" href="rss2.xml">
+          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
+        </a>
         <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
           <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
         </a>
@@ -197,7 +201,7 @@
   <div class="mask bg-black/20 absolute inset-0"></div>
 </div>
 
-  <main class="p-12">
+  <main class="pt-14">
     <!-- css -->
 
 <link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
@@ -218,22 +222,29 @@
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
         逻辑论证笔记
       </h1>
-      <p class="mb-6">
-        
-      </p>
       <div>
         <section class="flex items-center gap-3 text-sm">
-          <time>2023-04-12 20:38:16</time>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time>2023-04-12</time>
+          </span>
           <span class="text-gray-400">·</span>
-          <span>6 min</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span>6 min</span>
+          </span>
           <span class="text-gray-400">·</span>
-          <span>1.8k words</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span>1.8k words</span>
+          </span>
+          
         </section>
       </div>
     </div>
   </header>
   <!-- content -->
-  <article class="post-content mt-10 prose dark:prose-invert post-content">
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
     <h3 id="削弱类型：反对（“怼”）"><a href="#削弱类型：反对（“怼”）" class="headerlink" title="削弱类型：反对（“怼”）"></a>削弱类型：反对（“怼”）</h3><h3 id="加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题"><a href="#加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题" class="headerlink" title="加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题"></a>加强类型：（“赞同、支持”）要用逻辑思维解题，不能用言语思维解题</h3><h3 id="论证三要素：论据→论证→论点"><a href="#论证三要素：论据→论证→论点" class="headerlink" title="论证三要素：论据→论证→论点"></a>论证三要素：论据→论证→论点</h3><p>举例：猪能吃香蕉皮→香蕉皮是湿垃圾</p>
 <p><strong>论点：香蕉皮是湿垃圾→一定有</strong><br><strong>论据：猪能吃香蕉→可能有</strong><br><strong>论证：猪能吃的都是湿垃圾→隐含其中</strong></p>
 <p>【注意】论证的三要素：<strong>论点、论据、论证</strong></p>
@@ -501,12 +512,11 @@
   <!-- 访问统计busuanzi、copyright -->
   
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- Busuanzi Analytics、copyright -->
+<!-- Busuanzi Analytics -->
 <div class="flex items-center gap-2">
-  <span>© 2023 ZXHY</span>
-  <span>游客数</span>
+  <span>Visitors</span>
   <span id="busuanzi_value_site_uv"></span>
-  <span>访问量</span>
+  <span>Page Views</span>
   <span id="busuanzi_value_site_pv"></span>
 </div>
 <!-- End Busuanzi Analytics -->
@@ -527,11 +537,47 @@
 
 </footer>
 
-  <iconify-icon class="fixed right-4 bottom-10 z-100 opacity-0" width="24" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+    <span class="flex justify-center items-center text-sm">
+      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <span id="scrollpercent"><span>0</span> %</span>
+    </span>
+  </div>
   
 <script src="/js/main.js"></script>
 
 
+  <script>
+    $(document).ready(function () {
+      const mapleCount = "10";
+      const speed = "0.5";
+      const mapleEl = document.getElementById("maple");
+      const maples = Array.from({ length: mapleCount }).map(() => {
+        const maple = document.createElement("div");
+        const scale = Math.random() * 0.5 + 0.5;
+        const offset = Math.random() * 2 - 1;
+        const x = Math.random() * mapleEl.clientWidth;
+        const y = -Math.random() * mapleEl.clientHeight;
+        const duration = 10 / speed;
+        const delay = -duration;
+        maple.className = "maple";
+        maple.style.width = `${24 * scale}px`;
+        maple.style.height = `${24 * scale}px`;
+        maple.style.left = `${x}px`;
+        maple.style.top = `${y}px`;
+        maple.style.setProperty("--maple-fall-offset", offset);
+        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
+        maple.style.animation = `fall ${duration}s linear infinite`;
+        maple.style.animationDelay = `${delay}s`;
+        mapleEl.appendChild(maple)
+        return maple
+      })
+    });
+  </script>
+  
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
 </body>
 
 </html>
