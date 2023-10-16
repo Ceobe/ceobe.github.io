@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+
+
+<!-- Baidu Analytics -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8db65b410584b6fe3953c2487a699f98";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<!-- End Baidu Analytics -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="author" content="k k">
+
+
+  <meta name="subtitle" content="知是行之始，行是知之成。">
+
+
+
+
+<title>乡村振兴高频考点 50 条 | 知行合一</title>
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
+
+
+
+<script src="/lib/jquery.min.js"></script>
+
+
+<script src="/lib/iconify-icon.min.js"></script>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+  };
+</script>
+
+
+<script src="/lib/nprogress/nprogress.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "#de7441",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "#de7441",
+      "border-left-color": "#de7441",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+    let isDark = document.documentElement.classList.contains("dark");
+  })();
+
+  $(document).ready(function () {
+    // init icon
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = document.documentElement.classList.contains("dark");
+    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+
+    function toggleGiscusTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      const giscusFrame = document.querySelector("iframe.giscus-frame");
+      if (giscusFrame) {
+        giscusFrame.contentWindow.postMessage(
+          {
+            giscus: {
+              setConfig: {
+                theme: isDark ? "dark" : "light",
+              },
+            },
+          },
+          "https://giscus.app"
+        );
+      }
+    }
+
+
+    // toggle dark mode
+    function toggleDark() {
+      let isDark = document.documentElement.classList.contains("dark");
+      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      isDark = !isDark;
+      document.documentElement.classList.toggle("dark", isDark);
+      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+      if (prefersDark === isDark) {
+        localStorage.setItem("hexo-color-scheme", "auto");
+      } else {
+        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
+      }
+      toggleGiscusTheme();
+    }
+    $("#toggle-dark").click(toggleDark);
+
+    // listen dark mode change
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+        if (setting === "auto") {
+          document.documentElement.classList.toggle("dark", e.matches);
+          $("#theme-icon").attr(
+            "icon",
+            e.matches ? "ri:moon-line" : "ri:sun-line"
+          );
+          toggleGiscusTheme();
+        }
+      });
+  });
+</script>
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
+  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
+  <div class="max-auto">
+    <nav class="flex items-center text-base">
+      <a href="/" class="group">
+        <h2 class="font-medium tracking-tighterp text-l p-2">
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
+          知行合一
+        </h2>
+      </a>
+      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        乡村振兴高频考点 50 条
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-3">
+        
+          <a class="hidden sm:flex" href="/archives">Posts</a>
+        
+        
+          
+            <a class="w-5 h-5 hidden sm:flex" title="Weibo" target="_blank" rel="noopener" href="https://weibo.com/u/3213212102">
+              <iconify-icon width="20" icon="ri:weibo-line"></iconify-icon>
+            </a>
+          
+        
+        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
+          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
+        </span>
+        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
+        </span>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
+    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+      
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
+          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+  <div class="mask bg-black/20 absolute inset-0"></div>
+</div>
+
+  <main class="pt-14">
+    <!-- css -->
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+<!-- toc -->
+
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        乡村振兴高频考点 50 条
+      </h1>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time>2023-10-16</time>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span>7 min</span>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span>2.2k words</span>
+          </span>
+          
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+    <h3 id="1、实施乡村振兴战略要从五个方面系统推进"><a href="#1、实施乡村振兴战略要从五个方面系统推进" class="headerlink" title="1、实施乡村振兴战略要从五个方面系统推进"></a>1、实施乡村振兴战略要从五个方面系统推进</h3><p>产业振兴、人才振兴、文化振兴、生态振兴、组织振兴</p>
+<h3 id="2、实施乡村振兴战略的重大意义"><a href="#2、实施乡村振兴战略的重大意义" class="headerlink" title="2、实施乡村振兴战略的重大意义"></a>2、实施乡村振兴战略的重大意义</h3><p>①是建设现代化经济体系的重要基础<br>②是建设美丽中国的关键举措<br>③是传承中华优秀传统文化的有效途径<br>④是健全现代社会治理格局的固国之本<br>⑤是实现全体人民共同富裕的必然选择</p>
+<h3 id="3、实施乡村振兴战略的总方针："><a href="#3、实施乡村振兴战略的总方针：" class="headerlink" title="3、实施乡村振兴战略的总方针："></a>3、实施乡村振兴战略的总方针：</h3><p>坚持农业农村优先发展。</p>
+<h3 id="4、实施乡村振兴战略的总要求"><a href="#4、实施乡村振兴战略的总要求" class="headerlink" title="4、实施乡村振兴战略的总要求"></a>4、实施乡村振兴战略的总要求</h3><p>产业兴旺、生态宜居、乡风文明、治理有效、生活富裕。</p>
+<h3 id="5、实施乡村振兴战略的制度保障"><a href="#5、实施乡村振兴战略的制度保障" class="headerlink" title="5、实施乡村振兴战略的制度保障"></a>5、实施乡村振兴战略的制度保障</h3><p>建立健全城乡融合发展体制机制和政策体系。</p>
+<h3 id="6、实施乡村振兴战略的基本原则"><a href="#6、实施乡村振兴战略的基本原则" class="headerlink" title="6、实施乡村振兴战略的基本原则"></a>6、实施乡村振兴战略的基本原则</h3><p>①坚持党管农村工作<br>②坚持农业农村优先发展<br>③坚持农民主体地位<br>④坚持乡村全面振兴<br>⑤坚持城乡融合发展<br>⑥坚持人与自然和谐共生<br>⑦坚持改革创新、激发活力<br>⑧坚持因地制宜、循序渐进</p>
+<h3 id="7、乡村振兴要走好”七条道路”"><a href="#7、乡村振兴要走好”七条道路”" class="headerlink" title="7、乡村振兴要走好”七条道路”"></a>7、乡村振兴要走好”七条道路”</h3><p>①走城乡融合发展之路<br>②走共同富裕之路<br>③走质量兴农之路<br>④走乡村绿色发展之路<br>⑤走乡村文化兴盛之路<br>⑥走乡村善治之路<br>⑦走中国特色减贫之路</p>
+<h3 id="8、实施乡村振兴战略，坚持农业农村”四个优先”"><a href="#8、实施乡村振兴战略，坚持农业农村”四个优先”" class="headerlink" title="8、实施乡村振兴战略，坚持农业农村”四个优先”"></a>8、实施乡村振兴战略，坚持农业农村”四个优先”</h3><p>①在干部配备上优先考虑<br>②在要素配置上优先满足<br>③在资金投入上优先保障<br>④在公共服务上优先安排</p>
+<h3 id="9、实施乡村振兴战略，如何统筹城乡发展空间"><a href="#9、实施乡村振兴战略，如何统筹城乡发展空间" class="headerlink" title="9、实施乡村振兴战略，如何统筹城乡发展空间"></a>9、实施乡村振兴战略，如何统筹城乡发展空间</h3><p>①强化空间用途管制<br>②完善城乡布局结构<br>③推进城乡统一规划</p>
+<h3 id="10、实施乡村振兴战略，如何优化乡村发展布局"><a href="#10、实施乡村振兴战略，如何优化乡村发展布局" class="headerlink" title="10、实施乡村振兴战略，如何优化乡村发展布局"></a>10、实施乡村振兴战略，如何优化乡村发展布局</h3><p>①统筹利用生产空间<br>②合理布局生活空间<br>③严格保护生态空间</p>
+<h3 id="11、实施乡村振兴战略的总目标农业农村现代化”三步走”"><a href="#11、实施乡村振兴战略的总目标农业农村现代化”三步走”" class="headerlink" title="11、实施乡村振兴战略的总目标农业农村现代化”三步走”"></a>11、实施乡村振兴战略的总目标农业农村现代化”三步走”</h3><p>①到2020年，乡村振兴取得重要进展，制度框架和政策体系基本形成<br>②到2035年，乡村振兴取得决定性进展，农业农村现代化基本实现<br>③到2050年，乡村全面振兴农业强、农村美、农民富全面实现</p>
+<h3 id="12、乡村振兴战略规划中划分了哪四类村庄推进乡村发展"><a href="#12、乡村振兴战略规划中划分了哪四类村庄推进乡村发展" class="headerlink" title="12、乡村振兴战略规划中划分了哪四类村庄推进乡村发展"></a>12、乡村振兴战略规划中划分了哪四类村庄推进乡村发展</h3><p>①集聚提升类村庄<br>②城郊隔融合类村庄<br>③特色保护类村庄<br>④搬迁撤并类村庄</p>
+<h3 id="13、农村承包地”三权”分置中的”三权”是指"><a href="#13、农村承包地”三权”分置中的”三权”是指" class="headerlink" title="13、农村承包地”三权”分置中的”三权”是指"></a>13、农村承包地”三权”分置中的”三权”是指</h3><p>土地的所有权、承包权、经营权。</p>
+<h3 id="14、实施乡村振兴战略是"><a href="#14、实施乡村振兴战略是" class="headerlink" title="14、实施乡村振兴战略是"></a>14、实施乡村振兴战略是</h3><p>①解决人民日益增长的美好生活需要和不平衡不充分的发展之间矛盾的必然要求<br>②实现“两个一百年“奋斗目标的必然要求<br>③实现全体人民共同富裕的必然要求</p>
+<h3 id="15、农村最大优势和宝贵财富是："><a href="#15、农村最大优势和宝贵财富是：" class="headerlink" title="15、农村最大优势和宝贵财富是："></a>15、农村最大优势和宝贵财富是：</h3><p>良好的生态环境</p>
+<h3 id="16、金融扶贫的基本政策框架是："><a href="#16、金融扶贫的基本政策框架是：" class="headerlink" title="16、金融扶贫的基本政策框架是："></a>16、金融扶贫的基本政策框架是：</h3><p>构建一个涵盖税收、财政、保险以及证券、基金等现代金融工具在内的扶贫金融体系。</p>
+<h3 id="17、脱贫和致富分别是"><a href="#17、脱贫和致富分别是" class="headerlink" title="17、脱贫和致富分别是"></a>17、脱贫和致富分别是</h3><p>①生存问题和发展问题<br>②产业体系、生产体系、经营体系</p>
+<h3 id="24、关系国计民生的根本性问题是："><a href="#24、关系国计民生的根本性问题是：" class="headerlink" title="24、关系国计民生的根本性问题是："></a>24、关系国计民生的根本性问题是：</h3><p>农业农村农民问题</p>
+<h3 id="25、全面推进乡村振兴重点工作要全力抓好粮食生产和重要农产品供给"><a href="#25、全面推进乡村振兴重点工作要全力抓好粮食生产和重要农产品供给" class="headerlink" title="25、全面推进乡村振兴重点工作要全力抓好粮食生产和重要农产品供给"></a>25、全面推进乡村振兴重点工作要全力抓好粮食生产和重要农产品供给</h3><h3 id="26、23年继续重点建设农村公共基础设施，着力推进往村覆盖、往户延伸、实施："><a href="#26、23年继续重点建设农村公共基础设施，着力推进往村覆盖、往户延伸、实施：" class="headerlink" title="26、23年继续重点建设农村公共基础设施，着力推进往村覆盖、往户延伸、实施："></a>26、23年继续重点建设农村公共基础设施，着力推进往村覆盖、往户延伸、实施：</h3><p>①农村道路畅通工程<br>②农村供水保障工程<br>③乡村清洁能源建设工程<br>④数字乡村建设发展工程<br>⑤村级综合服务设施提升工程</p>
+<h3 id="27、”三位一体”大扶贫格局"><a href="#27、”三位一体”大扶贫格局" class="headerlink" title="27、”三位一体”大扶贫格局"></a>27、”三位一体”大扶贫格局</h3><p>坚持专项扶贫、社会扶贫和行业扶贫等多方力量、多种举措有结合和互为支撑。</p>
+<h3 id="28、《农村人居环境整治三年行动方案》重点任务"><a href="#28、《农村人居环境整治三年行动方案》重点任务" class="headerlink" title="28、《农村人居环境整治三年行动方案》重点任务"></a>28、《农村人居环境整治三年行动方案》重点任务</h3><p>①推进农村生活垃圾治理<br>②开展厕所粪污治理<br>③梯次推进农村生活污水治理<br>④提升村容村貌<br>⑤加强村庄规划管理<br>⑥完善建设和管护机制。</p>
+<h3 id="29、《农村人居环境整治三年行动方案》基本原则"><a href="#29、《农村人居环境整治三年行动方案》基本原则" class="headerlink" title="29、《农村人居环境整治三年行动方案》基本原则"></a>29、《农村人居环境整治三年行动方案》基本原则</h3><p>①因地制宜、分类指导<br>②示范先行、有序推进<br>③注重保护、留住乡愁<br>④村民主体、激发动力<br>⑤建管并重、长效运行<br>⑥落实责任、形成合力</p>
+<h3 id="30、农村”三资”是指"><a href="#30、农村”三资”是指" class="headerlink" title="30、农村”三资”是指"></a>30、农村”三资”是指</h3><p>农村集体资金、农村集体资产和农村集体资源。</p>
+<h3 id="31、《打赢脱贫攻坚战三年行动的指导意见》工作要求"><a href="#31、《打赢脱贫攻坚战三年行动的指导意见》工作要求" class="headerlink" title="31、《打赢脱贫攻坚战三年行动的指导意见》工作要求"></a>31、《打赢脱贫攻坚战三年行动的指导意见》工作要求</h3><p>①坚持严格执行现行扶贫标准<br>②坚持精准扶贫精准脱贫基本方略<br>③坚持把提高脱贫质量放在首位<br>④坚持扶贫同扶志扶智相结合<br>⑤坚持开发式扶贫和保障性扶贫相统筹<br>⑥坚持脱贫攻坚与锤炼作风、锻炼队伍相统一<br>⑦坚持调动全社会扶贫积极性。</p>
+<h3 id="32、扶贫脱贫基本方略”六个精准”"><a href="#32、扶贫脱贫基本方略”六个精准”" class="headerlink" title="32、扶贫脱贫基本方略”六个精准”"></a>32、扶贫脱贫基本方略”六个精准”</h3><p>扶持对象精准、项目安排精准、资金使用精准、措施到户精准、因村派人（第一书记）精准、脱贫成效精准</p>
+<h3 id="33、脱贫攻坚”两不愁、三保障”"><a href="#33、脱贫攻坚”两不愁、三保障”" class="headerlink" title="33、脱贫攻坚”两不愁、三保障”"></a>33、脱贫攻坚”两不愁、三保障”</h3><p>稳定实现农村贫困人口不愁吃、不愁穿，保障义务教育、基本医疗、住房安全。</p>
+<h3 id="34、脱贫攻坚”十大工程”"><a href="#34、脱贫攻坚”十大工程”" class="headerlink" title="34、脱贫攻坚”十大工程”"></a>34、脱贫攻坚”十大工程”</h3><p>①干部驻村帮扶工程、职业教育工程、扶贫小额信贷工程、易地扶<br>②无工程、电商扶贫工程、旅游扶贫工程、光伏扶贫工程、构树扶贫工程、贫困村创业致富带头人培训工程、扶贫龙头企业带动工程。</p>
+<h3 id="35、扶贫”五个一批"><a href="#35、扶贫”五个一批" class="headerlink" title="35、扶贫”五个一批"></a>35、扶贫”五个一批</h3><p>发展生产脱贫一批、易地搬迁脱贫一批、生态补偿脱贫一批、发展教育脱贫一批、社会保障兜底一批。</p>
+<h3 id="36、提高脱贫攻坚成效要解决好的四个问题"><a href="#36、提高脱贫攻坚成效要解决好的四个问题" class="headerlink" title="36、提高脱贫攻坚成效要解决好的四个问题"></a>36、提高脱贫攻坚成效要解决好的四个问题</h3><p>扶持谁、谁来扶、怎么扶、如何退。</p>
+<h3 id="37、脱贫攻坚领导责任制"><a href="#37、脱贫攻坚领导责任制" class="headerlink" title="37、脱贫攻坚领导责任制"></a>37、脱贫攻坚领导责任制</h3><p>实行中央统筹、省（自治区、直辖市）负总责、市（地）县抓落实的工作机制，坚持片区为重点、精准到村到户。</p>
+<h3 id="38、”阳光扶贫”监管系统五大数据库"><a href="#38、”阳光扶贫”监管系统五大数据库" class="headerlink" title="38、”阳光扶贫”监管系统五大数据库"></a>38、”阳光扶贫”监管系统五大数据库</h3><p>扶贫对象、扶贫资金、扶贫项目、扶贫资产和扶贫单位数据</p>
+<h3 id="39、脱贫攻坚”四个转变”"><a href="#39、脱贫攻坚”四个转变”" class="headerlink" title="39、脱贫攻坚”四个转变”"></a>39、脱贫攻坚”四个转变”</h3><p>推动帮扶重心向精准到户转变：帮扶重点向产业扶贫转变：帮扶方式向激发内生动力转变；帮扶成效向增强群众“获得感”转变。</p>
+<h3 id="40、农村人居环境整治的重点是"><a href="#40、农村人居环境整治的重点是" class="headerlink" title="40、农村人居环境整治的重点是"></a>40、农村人居环境整治的重点是</h3><p>农村垃圾污水治理、厕所革命和村容村貌提升。</p>
+<h3 id="41、加快构建新型农业补贴政策体系的原则"><a href="#41、加快构建新型农业补贴政策体系的原则" class="headerlink" title="41、加快构建新型农业补贴政策体系的原则"></a>41、加快构建新型农业补贴政策体系的原则</h3><p>增加总量、优化存量、提高效能。</p>
+<h3 id="42、乡村治理体系"><a href="#42、乡村治理体系" class="headerlink" title="42、乡村治理体系"></a>42、乡村治理体系</h3><p>坚持自治为基、法治为本、德治为先，自治、当先，自治、法治、德治相结合。</p>
+<h3 id="43、健全乡村公共文化服务体系的要求"><a href="#43、健全乡村公共文化服务体系的要求" class="headerlink" title="43、健全乡村公共文化服务体系的要求"></a>43、健全乡村公共文化服务体系的要求</h3><p>有标准、有网络、有内容、有人才。</p>
+<h3 id="44、农村公共服务提升计划"><a href="#44、农村公共服务提升计划" class="headerlink" title="44、农村公共服务提升计划"></a>44、农村公共服务提升计划</h3><p>乡村教育提升计划、健康乡村计划、全民参保计划、农村养老计划</p>
+<h3 id="45、生态宜居的美丽乡村标准"><a href="#45、生态宜居的美丽乡村标准" class="headerlink" title="45、生态宜居的美丽乡村标准"></a>45、生态宜居的美丽乡村标准</h3><p>生活环境整治优美、生态系统稳定健康、人与自然和谐共生</p>
+<h3 id="46、实现乡村绿化格局，要以”五化”为目标，即"><a href="#46、实现乡村绿化格局，要以”五化”为目标，即" class="headerlink" title="46、实现乡村绿化格局，要以”五化”为目标，即"></a>46、实现乡村绿化格局，要以”五化”为目标，即</h3><p>山地森林化、农田林网化、村屯园林化、道路林荫化、庭院花果</p>
+<h3 id="47、我国粮食安全保障机制是"><a href="#47、我国粮食安全保障机制是" class="headerlink" title="47、我国粮食安全保障机制是"></a>47、我国粮食安全保障机制是</h3><p>坚持以我为主、立足国内、确保产能、适度进口、科技支撑的国<br>家粮食安全战略，建立全方位的粮食安全保障机制。</p>
+<h3 id="48、乡村振兴战略什么时候提出？"><a href="#48、乡村振兴战略什么时候提出？" class="headerlink" title="48、乡村振兴战略什么时候提出？"></a>48、乡村振兴战略什么时候提出？</h3><p>2017年10月18日，习近平总书记在党的十九大报告中首次提出乡村振兴战略。十九大报告指出，农业农村农民问题是关系国计民生的根本性问题，必须始终把解决好”三农“问题作为全党工作的重中之重。</p>
+<h3 id="49、2023年2月13日，2023年中央一号文件公布，这是21世纪以来第20个指导“三农”工作的中央一号文件。"><a href="#49、2023年2月13日，2023年中央一号文件公布，这是21世纪以来第20个指导“三农”工作的中央一号文件。" class="headerlink" title="49、2023年2月13日，2023年中央一号文件公布，这是21世纪以来第20个指导“三农”工作的中央一号文件。"></a>49、2023年2月13日，2023年中央一号文件公布，这是21世纪以来第20个指导“三农”工作的中央一号文件。</h3><h3 id="50、怎样才称得上”乡村振兴”？"><a href="#50、怎样才称得上”乡村振兴”？" class="headerlink" title="50、怎样才称得上”乡村振兴”？"></a>50、怎样才称得上”乡村振兴”？</h3><p>让农业成为有奔头的产业，让农民成为有吸引力的职业，让农村成为安居乐业的美丽家园</p>
+
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    
+  </div>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      
+    </div>
+    <div>
+      
+        <a href="/2023/10/16/%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B420%E5%AD%97%E6%80%BB%E6%96%B9%E9%92%88%E3%80%815%E4%B8%AA%E6%8C%AF%E5%85%B4%E3%80%813%E6%AD%A5%E8%B5%B0%E3%80%817%E4%B8%AA%E5%9D%9A%E6%8C%81/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          乡村振兴20字总方针、5个振兴、3步走、7个坚持
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    
+
+  </div>
+</section>
+<!-- js inspect -->
+
+<script src="/lib/clipboard.min.js"></script>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(() => {
+    const maraidConfig = {
+      theme: "default",
+      logLevel: 3,
+      flowchart: { curve: "linear" },
+      gantt: { axisFormat: "%m/%d/%Y" },
+      sequence: { actorMargin: 50 },
+    };
+    mermaid.initialize(maraidConfig);
+  });
+</script>
+
+
+
+<script src="/lib/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    $('.post-content').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function(){
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // options
+    })
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+  </main>
+  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+  <!-- 访问统计busuanzi 未启用-->
+  <!-- 
+ -->
+  <!-- 备案信息 -->
+  <div class="flex items-center gap-2">
+    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">皖ICP备16024803号-12</a>
+  </div>
+  <div class="flex items-center gap-2">
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34182102000267" target="_blank" rel="noopener noreferrer"><img src="/img/beian.png" style="float:left;"/>皖公网安备 34182102000267号</a>
+  </div>
+  <!-- powered by -->
+  <div class="flex items-center gap-2">
+    <span>Powered by</span>
+    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <span>&</span>
+    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+  </div>
+
+</footer>
+
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+    <span class="flex justify-center items-center text-sm">
+      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <span id="scrollpercent"><span>0</span> %</span>
+    </span>
+  </div>
+  
+<script src="/js/main.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      const mapleCount = "10";
+      const speed = "0.5";
+      const mapleEl = document.getElementById("maple");
+      const maples = Array.from({ length: mapleCount }).map(() => {
+        const maple = document.createElement("div");
+        const scale = Math.random() * 0.5 + 0.5;
+        const offset = Math.random() * 2 - 1;
+        const x = Math.random() * mapleEl.clientWidth;
+        const y = -Math.random() * mapleEl.clientHeight;
+        const duration = 10 / speed;
+        const delay = -duration;
+        maple.className = "maple";
+        maple.style.width = `${24 * scale}px`;
+        maple.style.height = `${24 * scale}px`;
+        maple.style.left = `${x}px`;
+        maple.style.top = `${y}px`;
+        maple.style.setProperty("--maple-fall-offset", offset);
+        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
+        maple.style.animation = `fall ${duration}s linear infinite`;
+        maple.style.animationDelay = `${delay}s`;
+        mapleEl.appendChild(maple)
+        return maple
+      })
+    });
+  </script>
+  
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
+</body>
+
+</html>
