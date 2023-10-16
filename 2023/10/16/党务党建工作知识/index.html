@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+
+
+<!-- Baidu Analytics -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8db65b410584b6fe3953c2487a699f98";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<!-- End Baidu Analytics -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="author" content="k k">
+
+
+  <meta name="subtitle" content="知是行之始，行是知之成。">
+
+
+
+
+<title>党务党建工作知识 | 知行合一</title>
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
+
+
+
+<script src="/lib/jquery.min.js"></script>
+
+
+<script src="/lib/iconify-icon.min.js"></script>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+  };
+</script>
+
+
+<script src="/lib/nprogress/nprogress.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "#de7441",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "#de7441",
+      "border-left-color": "#de7441",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+    let isDark = document.documentElement.classList.contains("dark");
+  })();
+
+  $(document).ready(function () {
+    // init icon
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = document.documentElement.classList.contains("dark");
+    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+
+    function toggleGiscusTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      const giscusFrame = document.querySelector("iframe.giscus-frame");
+      if (giscusFrame) {
+        giscusFrame.contentWindow.postMessage(
+          {
+            giscus: {
+              setConfig: {
+                theme: isDark ? "dark" : "light",
+              },
+            },
+          },
+          "https://giscus.app"
+        );
+      }
+    }
+
+
+    // toggle dark mode
+    function toggleDark() {
+      let isDark = document.documentElement.classList.contains("dark");
+      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      isDark = !isDark;
+      document.documentElement.classList.toggle("dark", isDark);
+      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+      if (prefersDark === isDark) {
+        localStorage.setItem("hexo-color-scheme", "auto");
+      } else {
+        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
+      }
+      toggleGiscusTheme();
+    }
+    $("#toggle-dark").click(toggleDark);
+
+    // listen dark mode change
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+        if (setting === "auto") {
+          document.documentElement.classList.toggle("dark", e.matches);
+          $("#theme-icon").attr(
+            "icon",
+            e.matches ? "ri:moon-line" : "ri:sun-line"
+          );
+          toggleGiscusTheme();
+        }
+      });
+  });
+</script>
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
+  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
+  <div class="max-auto">
+    <nav class="flex items-center text-base">
+      <a href="/" class="group">
+        <h2 class="font-medium tracking-tighterp text-l p-2">
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
+          知行合一
+        </h2>
+      </a>
+      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        党务党建工作知识
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-3">
+        
+          <a class="hidden sm:flex" href="/archives">Posts</a>
+        
+        
+          
+            <a class="w-5 h-5 hidden sm:flex" title="Weibo" target="_blank" rel="noopener" href="https://weibo.com/u/3213212102">
+              <iconify-icon width="20" icon="ri:weibo-line"></iconify-icon>
+            </a>
+          
+        
+        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
+          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
+        </span>
+        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
+        </span>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
+    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+      
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
+          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+  <div class="mask bg-black/20 absolute inset-0"></div>
+</div>
+
+  <main class="pt-14">
+    <!-- css -->
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+<!-- toc -->
+
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        党务党建工作知识
+      </h1>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time>2023-10-16</time>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span>16 min</span>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span>5k words</span>
+          </span>
+          
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+    <h2 id="党务党建工作知识"><a href="#党务党建工作知识" class="headerlink" title="党务党建工作知识"></a>党务党建工作知识</h2><h3 id="【知识点-1】党史知识"><a href="#【知识点-1】党史知识" class="headerlink" title="【知识点 1】党史知识"></a>【知识点 1】党史知识</h3><ol>
+<li><strong>中共一大：</strong>1921 年 7 月 23 日，中国共产党第一次全国代表大会在<strong>上海</strong>（后转移<br>至浙江嘉兴南湖）召开，标志着<strong>中国共产党的成立</strong>。</li>
+<li><strong>中共二大：</strong>1922 年 7 月，中国共产党在<strong>上海</strong>召开第二次全国代表大会，<strong>第一次</strong><br>明确地提出了<strong>彻底的反帝反封建的民主革命纲领。</strong></li>
+<li>第一次国共合作的实现：1924 年，孙中山在<strong>广州</strong>主持召开国民党一大，标志着<strong>国共合作正式形成，民主革命统一战线正式建立。</strong></li>
+<li><strong>南昌起义：</strong>1927 年 8 月 1 日，<strong>周恩来</strong>等人<strong>打响了武装反抗国民党的第一枪。</strong></li>
+<li>八七会议：1927 年 8 月 7 日，中共中央在<strong>汉口</strong>秘密召开八七会议，彻底清算了大革命后期<strong>陈独秀</strong>的<strong>右倾机会主义错误</strong>，确定了<strong>土地革命和武装反抗国民党的总方针</strong>。毛泽东在会上提出“<strong>须知政权是由枪杆子中取得的</strong>”。</li>
+<li><strong>秋收起义：</strong>1927 年 9 月，毛泽东领导<strong>湘赣边界</strong>秋收起义。</li>
+<li><strong>三湾改编：</strong>1927 年，三湾改编标志着毛泽东建设人民军队思想的<strong>开始形成</strong>。</li>
+<li>井冈山根据地：毛泽东创建了<strong>第一个农村革命根据地——井冈山革命根据地</strong>。</li>
+<li>长征：（1）时间：1934 年 10 月—1936 年 10 月。（2）导火索：<strong>第五次反“围剿”失败</strong>。</li>
+<li><strong>遵义会议：</strong>1935 年召开，中国共产党第一次自主地运用马克思列宁主义基本原<br>理解决中国革命的问题，中国共产党历史上一个生死攸关的转折点。</li>
+<li>抗日战争：（1）<strong>九一八事变：局部抗战</strong>。（2）七七事变：<strong>全面抗战</strong>。（3）时<br>间：1931 年—1945 年。</li>
+<li>瓦窑堡会议：1935 年底<strong>瓦窑堡会议</strong>，确定了<strong>建立抗日民族统一战线的方针</strong>。</li>
+<li>西安事变：1936 年，<strong>张学良、杨虎城</strong>逼蒋抗日。西安事变的和平解决标志着<strong>抗日民族统一战线初步形成</strong>。</li>
+<li><strong>百团大战</strong>：1940 年下半年，<strong>彭德怀</strong>指挥的“百团大战”是抗日战争时期，由中<br>国共产党独立发动的<strong>规模最大、持续时间最长、战果最丰富的战役</strong>。</li>
+<li>三大战役：辽沈战役、淮海战役、平津战役。</li>
+<li>渡江战役：1949 年 4 月 21 日，中国人民解放军强渡<strong>长江</strong>。</li>
+</ol>
+<h3 id="【知识点-2】党的性质和最终目标"><a href="#【知识点-2】党的性质和最终目标" class="headerlink" title="【知识点 2】党的性质和最终目标"></a>【知识点 2】党的性质和最终目标</h3><ol>
+<li>中国共产党是<strong>中国工人阶级</strong>的先锋队，同时是<strong>中国人民和中华民族</strong>的先锋队，是中国特色社会主义事业的<strong>领导核心</strong>，代表中国先进生产力的发展要求，代表中国先进文化的前进方向，代表中国最广大人民的根本利益。</li>
+<li>党的最高理想和最终目标是<strong>实现共产主义</strong>。</li>
+<li>党的根本宗旨是<strong>全心全意为人民服务</strong>。这是我们党区别于其他政党的显著标志，<br>也是我们党<strong>一切工作的根本出发点</strong>。</li>
+</ol>
+<h3 id="【知识点-3】党员的义务和权力"><a href="#【知识点-3】党员的义务和权力" class="headerlink" title="【知识点 3】党员的义务和权力"></a>【知识点 3】党员的义务和权力</h3><ol>
+<li><strong>党员必须履行下列义务</strong><br>第一，认真学习马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想、科学发展观、<strong>习近平新时代中国特色社会主义思想</strong>，学习党的<strong>路线、方针、政策和决议</strong>，学习党的基本知识，学习科学、文化、法律和业务知识，努力提高为人民服务的本领。<br>第二，贯彻执行党的基本路线和各项方针、政策，带头参加改革开放和社会主义现代化建设，带动群众为经济发展和社会进步艰苦奋斗，在生产、工作、学习和社会生活中起<strong>先锋模范作用</strong>。<br>第三，坚持党和人民的利益高于一切，个人利益服从党和人民的利益，<strong>吃苦在前，享受在后，克己奉公，多做贡献</strong>。<br>第四，自觉遵守党的纪律，<strong>首先是党的政治纪律和政治规矩</strong>，模范遵守国家的法律法规，严格保守党和国家的秘密，<strong>执行党的决定，服从组织分配</strong>，积极完成党的任务。<br>第五，维护党的团结和统一，<strong>对党忠诚老实，言行一致</strong>，坚决反对<strong>一切派别组织和小集团活动</strong>，反对阳奉阴违的两面派行为和一切阴谋诡计。<br>第六，切实开展批评和自我批评，勇于揭露和<strong>纠正违反党的原则的言行</strong>和工作中的缺点、错误，<strong>坚决同消极腐败现象作斗争</strong>。<br>第七，密切联系群众，向群众<strong>宣传党的主张</strong>，遇事同群众商量，及时向党反映群众的意见和要求，维护群众的正当利益。<br>第八，<strong>发扬社会主义新风尚，带头实践社会主义核心价值观和社会主义荣辱观</strong>，提倡共产主义道德，<strong>弘扬中华民族传统美德</strong>，为了保护国家和人民的利益，在一切困难和危险的时刻挺身而出，英勇斗争，不怕牺牲。</li>
+<li><strong>党员享有下列权利</strong><br>（1）参加党的有关会议，阅读党的有关文件，接受党的<strong>教育和培训</strong>。<br>（2）在党的会议上和党报党刊上，参加关于党的<strong>政策问题</strong>的讨论。<br>（3）对党的工作提出<strong>建议和倡议</strong>。<br>（4）在党的会议上有根据地批评党的任何组织和任何党员，向党负责地<strong>揭发、检举</strong>党的任何组织和任何党员违法乱纪的事实，要求处分违法乱纪的党员，要求<strong>罢免或撤换</strong>不称职的干部。<br>（5）行使<strong>表决权、选举权，有被选举权</strong>。<br>（6）在党组织讨论决定对党员的党纪处分或作出鉴定时，本人有权参加和进行申辩，其他党员可以为他<strong>作证和辩护</strong>。<br>（7）对党的决议和政策如有不同意见，在坚决执行的前提下，可以声明保留，并且可以把自己的意见向党的上级组织直至中央提出。<br>（8）向党的上级组织直至中央提出<strong>请求、申诉和控告</strong>，并要求有关组织给以负责的答复。<br><strong>党的任何一级组织直至中央都无权剥夺党员的上述权利。</strong></li>
+</ol>
+<h3 id="【知识点-4】党的中央组织"><a href="#【知识点-4】党的中央组织" class="headerlink" title="【知识点 4】党的中央组织"></a>【知识点 4】党的中央组织</h3><ol>
+<li>党的中央组织构成<br>党的中央组织包括党的全国代表大会、中央委员会、中央纪律检查委员会、中央政治局、中央政治局常务委员会、中央委员会总书记、中央书记处和中央军事委员会。<strong>党的全国代表大会及其产生的中央委员会是党的最高领导机关</strong>。</li>
+<li><strong>党的全国代表大会</strong><br>党的全国代表大会每五年举行一次，由中央委员会召集。中央委员会认为有必要，或者有三分之一以上的省一级组织提出要求，全国代表大会可以提前举行；如无非常情况，不得延期举行。党的全国代表大会的职权是：<br>（1）<strong>听取和审查</strong>中央委员会的报告；<br>（2）<strong>审查</strong>中央纪律检查委员会的报告；<br>（3）讨论并决定党的重大问题；<br>（4）修改党的章程；<br>（5）选举中央委员会；<br>（6）选举中央纪律检查委员会。</li>
+<li><strong>党的全国代表会议</strong><br>（1）讨论和决定重大问题；<br>（2）调整和增选中央委员会、中央纪律检查委员会的部分成员。调整和增选中央委员及候补中央委员的数额，<strong>不得超过党的全国代表大会选出的中央委员及候补中央委员各自总数的五分之一</strong>。</li>
+<li><strong>党的中央委员会</strong><br>（1）<strong>党的中央委员会每届任期五年</strong>。全国代表大会如提前或延期举行，它的任期相应地改变。<br>（2）<strong>中央委员会委员和候补委员必须有五年以上的党龄</strong>。中央委员会委员和候补委员的名额，由全国代表大会决定。中央委员会委员出缺，由中央委员会候补委员按照得票多少依次递补。<br>（3）中央委员会全体会议由中央政治局召集，<strong>每年至少举行一次</strong>。中央政治局向中央委员会全体会议报告工作，接受监督。<br>（4）在全国代表大会闭会期间，中央委员会执行全国代表大会的决议，领导党的全部工作，对外代表中国共产党。</li>
+<li><strong>党的中央政治局</strong><br>（1）<strong>党的中央政治局、中央政治局常务委员会和中央委员会总书记，由中央委员会全体会议选举</strong>。中央委员会总书记必须从中央政治局常务委员会委员中产生。<br>（2）中央政治局和它的常务委员会在中央委员会全体会议闭会期间，行使中央委员会的职权。<br>（3）<strong>中央书记处是中央政治局和它的常务委员会的办事机构</strong>；成员由中央政治局常务委员会提名，中央委员会全体会议通过。<br>（4）中央委员会总书记负责召集中央政治局会议和中央政治局常务委员会会议，并主持中央书记处的工作。</li>
+<li><strong>党的中央军事委员会</strong><br>（1）党的中央军事委员会组成人员由中央委员会决定，<strong>中央军事委员会实行主席负责制</strong>。<br>（2）中国人民解放军的党组织，根据中央委员会的指示进行工作。<strong>中央军事委员会负责军队中党的工作和政治工作，对军队中党的组织体制和机构作出规定</strong>。</li>
+</ol>
+<h3 id="【知识点-5】党的纪律"><a href="#【知识点-5】党的纪律" class="headerlink" title="【知识点 5】党的纪律"></a>【知识点 5】党的纪律</h3><h4 id="（一）党的纪律类型"><a href="#（一）党的纪律类型" class="headerlink" title="（一）党的纪律类型"></a>（一）党的纪律类型</h4><p>主要包括<strong>政治纪律、组织纪律、廉洁纪律、群众纪律、工作纪律、生活纪律</strong>。 </p>
+<h4 id="（二）正确对待违纪党员"><a href="#（二）正确对待违纪党员" class="headerlink" title="（二）正确对待违纪党员"></a>（二）正确对待违纪党员</h4><ol>
+<li>党组织对违犯党的纪律的党员，坚持惩前毖后、治病救人，执纪必严、违纪必究，抓早抓小、防微杜渐，按照错误性质和情节轻重，给以批评教育直至纪律处分。</li>
+<li><strong>运用监督执纪“四种形态”，让“红红脸、出出汗”成为常态</strong>，党纪处分、组织调整成为管党治党的重要手段，严重违纪、严重触犯刑律的党员必须开除党籍。</li>
+<li>党内严格禁止用违反党章和国家法律的手段对待党员，严格禁止打击报复和诬告陷害。违反这些规定的组织或个人必须受到党的纪律和国家法律的追究。</li>
+</ol>
+<h4 id="（三）党的纪律处分类型党的纪律处分有以下五种。"><a href="#（三）党的纪律处分类型党的纪律处分有以下五种。" class="headerlink" title="（三）党的纪律处分类型党的纪律处分有以下五种。"></a>（三）党的纪律处分类型党的纪律处分有以下五种。</h4><ol>
+<li>警告。</li>
+<li>严重警告。</li>
+<li>撤销党内职务。</li>
+<li>留党察看。<strong>留党察看最长不超过两年。党员在留党察看期间没有表决权、选举权和被选举权</strong>。党员经过留党察看，确已改正错误的，应当恢复其党员的权利；坚持错误不改的，应当开除党籍。</li>
+<li>开除党籍。<strong>开除党籍是党内的最高处分</strong>。各级党组织在决定或批准开除党员党籍的时候，应当全面研究有关的材料和意见，采取十分慎重的态度。</li>
+</ol>
+<h3 id="【知识点-6】“三会一课”制度"><a href="#【知识点-6】“三会一课”制度" class="headerlink" title="【知识点 6】“三会一课”制度"></a>【知识点 6】“三会一课”制度</h3><p>“三会一课”制度，即<strong>定期召开党员大会、党支部委员会、党小组会，定期上党课制度</strong>。“三会一课”制度是健全党内生活，严格党员管理，加强党员教育的重要制度，对于加强支部建设，提高党的战斗力具有重要作用。</p>
+<ol>
+<li><strong>支部党员大会</strong><br>是党支部全体党员参加的会议，是<strong>党支部的最高领导机关</strong>，在党支部中享有最高决策权、选举权和监督权。支部党员大会一般情况下<strong>每季度召开一次</strong>。党支部可以根据工作需要，提前召开支部党员大会。<strong>若遇特殊情况不能按时召开，必须经上级党组织批准。</strong><br>凡属党支部的重要问题，都应提交支部党员大会讨论和决定，这既是党支部实行民主集中制的一项根本性制度，又是组织制度的最重要内容。</li>
+<li><strong>支部委员会</strong><br>支部委员会由支部大会选举产生，在支部大会闭会期间负责支部的日常工作。支部委员会一般<strong>每月召开一次</strong>，也可根据需要随时召开。</li>
+<li><strong>党小组会</strong><br>党小组会是指党小组全体党员参加的会议。一般每月召开一次，如遇党支部有特殊任务，也可增加召开的次数或延迟召开的时间。党小组会的内容一般围绕党的中心工作和党支部的近期工作，结合本小组的实际情况确定，每次解决一两个问题。<blockquote>
+<p>知识链接<br><strong>党小组的主要任务</strong><br>（1）组织党员学习马克思列宁主义、毛泽东思想、邓小平理论，学习党的基本政策、基本知识和科学文化技术，不断提高党员的思想政治觉悟和业务工作素质。<br>（2）按照实际情况和需要，分配每个党员以一定的工作，具体地组织党员去实现党支部的决议，完成支部布置的各项工作任务。<br>（3）协助党支部做好对党员经常性的思想教育，接受党员的汇报，关心和了解党员的思想、工作、学习、生活等情况，及时向党支部汇报。反映党员的思想动态和群众的呼声和要求。<br>（4）定期召开党小组生活会，开展批评和自我批评，组织、督促党员按时参加党组织的有关活动。<br>（5）协助党支部做好对党员的民主评议和鉴定，做好对入党积极分子的培养、考察和对预备党员的考察、转正工作。<br>（6）组织党员开展“争先创优”活动，要求党员在本单位的各项工作中发挥先锋模范作用。</p>
+</blockquote>
+</li>
+<li><strong>党课</strong><br>党课是对党员和非党积极分子进行教育的最经常最基本的一种有效形式，<strong>一般每个季度组织开展一次</strong>。组织好党课，是党支部的一项重要工作，要制定年度党课教育计划，根据不同时期的形势和任务，结合本单位的实际和党员的思想状况有针对性地进行，要安排好党课时间、内容、讲课教员等。</li>
+</ol>
+<h3 id="【知识点-7】党费管理"><a href="#【知识点-7】党费管理" class="headerlink" title="【知识点 7】党费管理"></a>【知识点 7】党费管理</h3><p>按照党章规定向党组织交纳党费是党员对党组织应尽的义务，是党员增强党性和组织纪律观念的具体体现，每个党员都必须遵守《关于中国共产党党费收缴、使用和管理的规定》，按时按标准交纳党费。 </p>
+<h4 id="（一）党费管理的基本制度"><a href="#（一）党费管理的基本制度" class="headerlink" title="（一）党费管理的基本制度"></a>（一）党费管理的基本制度</h4><ol>
+<li>收缴与管理制度。党组织要经常了解党员交纳党费的情况，指定专人负责党费的收缴、使用和管理工作。</li>
+<li>公示制度。基层党组织要按月将所收党费、上缴党费和使用党费的数额与情况及时登记，做到收支登记明了，账据相符，年终将党费账目公布。</li>
+<li>定期检查制度。基层党组织对党费的收缴、使用和管理的情况，要定期检查。</li>
+<li>党费使用审批制度。要明确审批权限，履行审批手续，严格使用范围。</li>
+</ol>
+<h4 id="（二）党费交纳的基数与比例"><a href="#（二）党费交纳的基数与比例" class="headerlink" title="（二）党费交纳的基数与比例"></a>（二）党费交纳的基数与比例</h4><ol>
+<li>党费交纳的基数。按月领取工资的党员，每月以工资总额中相对固定的、经常性的工资收入（税后）为计算基数，按规定比例交纳党费。</li>
+<li>党费交纳比例。按照《关于中国共产党党费收缴、使用和管理的规定》，在岗党员交纳党费的比例为：每月工资收入（税后）在 3000 元以下（含 3000 元）者，交纳月工资收入的 <strong>0.5％</strong>；每月 3000 元以上至 5000 元（含 5000 元）者，交纳<strong>1％</strong>；每月 5000元以上至 10000 元（含 10000 元）者，交纳<strong>1.5％</strong>；10000 元以上者，交纳<strong>2％</strong>。</li>
+</ol>
+<h4 id="（三）特殊情况下党费的交纳与处理"><a href="#（三）特殊情况下党费的交纳与处理" class="headerlink" title="（三）特殊情况下党费的交纳与处理"></a>（三）特殊情况下党费的交纳与处理</h4><ol>
+<li>党员自愿多交党费不限。自愿一次多交纳 1000 元以上的党费，全部上缴中央。<br>具体办法是：由所在基层党委代收，并提供该党员的简要情况，连同党费一起转交中央组织部。中央组织部给本人出具收据。</li>
+<li>遇到特殊情况，经党支部同意，可以<strong>每季度交纳一次党费</strong>，也可以委托其亲属或者其他党员代为交纳或者补交党费。<strong>补交党费的时间一般不得超过6个月</strong>。</li>
+<li>交纳党费确有困难的党员，本人提出申请，经党支部研究，报上一级党委批准后，可以少交或者免交。</li>
+</ol>
+<h4 id="（四）党费的使用"><a href="#（四）党费的使用" class="headerlink" title="（四）党费的使用"></a>（四）党费的使用</h4><p>使用党费应当坚持<strong>统筹安排、量入为出、收支平衡、略有结余</strong>的原则。使用党费要向农村、街道社区和其他有困难的基层党组织倾斜。党费必须用于党的活动，主要作为党员教育经费的补充，其具体使用范围包括：<br>（1）培训党员；<br>（2）订阅或购买用于开展党员教育的报刊、资料、音像制品和设备；<br>（3）表彰先进基层党组织、优秀共产党员和优秀党务工作者；<br>（4）补助生活困难的党员；<br>（5）补助遭受严重自然灾害的党员和修缮因灾受损的基层党员教育设施。</p>
+<h3 id="【知识点-8】《中国共产党廉洁自律准则》"><a href="#【知识点-8】《中国共产党廉洁自律准则》" class="headerlink" title="【知识点 8】《中国共产党廉洁自律准则》"></a>【知识点 8】《中国共产党廉洁自律准则》</h3><p>该《准则》是我们党执政以来第一部坚持<strong>正面倡导、面向全体党员</strong>的党内廉洁自律规范，为广大党员树立了看得见、够得着的高标准，展现了共产党人的高尚道德情操。 （一）“四个必须”中国共产党全体党员和各级党员领导干部做好四个必须：</p>
+<ol>
+<li>必须坚定<strong>共产主义理想</strong>和<strong>中国特色社会主义信念</strong>；</li>
+<li>必须坚持<strong>全心全意为人民服务</strong>根本宗旨；</li>
+<li>必须继承发扬党的优良传统和作风；</li>
+<li>必须自觉培养高尚道德情操，努力弘扬中华民族传统美德，廉洁自律，接受监督，永葆党的先进性和纯洁性。</li>
+</ol>
+<h4 id="（二）“四个坚持”（党员）"><a href="#（二）“四个坚持”（党员）" class="headerlink" title="（二）“四个坚持”（党员）"></a>（二）“四个坚持”（党员）</h4><p>第一条，<strong>坚持公私分明</strong>，先公后私，克己奉公。<br>第二条，<strong>坚持崇廉拒腐</strong>，清白做人，干净做事。<br>第三条，<strong>坚持尚俭戒奢</strong>，艰苦朴素，勤俭节约。<br>第四条，<strong>坚持吃苦在前</strong>，享受在后，甘于奉献。 </p>
+<h4 id="（三）“四个自觉”（党员领导干部）"><a href="#（三）“四个自觉”（党员领导干部）" class="headerlink" title="（三）“四个自觉”（党员领导干部）"></a>（三）“四个自觉”（党员领导干部）</h4><p>第五条，<strong>廉洁从政</strong>，自觉保持人民公仆本色。<br>第六条，<strong>廉洁用权</strong>，自觉维护人民根本利益。<br>第七条，<strong>廉洁修身</strong>，自觉提升思想道德境界。<br>第八条，<strong>廉洁齐家</strong>，自觉带头树立良好家风。</p>
+
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    
+  </div>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      
+    </div>
+    <div>
+      
+        <a href="/2023/10/16/%E4%B8%AD%E5%9B%BD%E5%BC%8F%E7%8E%B0%E4%BB%A3%E5%8C%96/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          中国式现代化
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    
+
+  </div>
+</section>
+<!-- js inspect -->
+
+<script src="/lib/clipboard.min.js"></script>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(() => {
+    const maraidConfig = {
+      theme: "default",
+      logLevel: 3,
+      flowchart: { curve: "linear" },
+      gantt: { axisFormat: "%m/%d/%Y" },
+      sequence: { actorMargin: 50 },
+    };
+    mermaid.initialize(maraidConfig);
+  });
+</script>
+
+
+
+<script src="/lib/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    $('.post-content').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function(){
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // options
+    })
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+  </main>
+  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+  <!-- 访问统计busuanzi 未启用-->
+  <!-- 
+ -->
+  <!-- 备案信息 -->
+  <div class="flex items-center gap-2">
+    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">皖ICP备16024803号-12</a>
+  </div>
+  <div class="flex items-center gap-2">
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34182102000267" target="_blank" rel="noopener noreferrer"><img src="/img/beian.png" style="float:left;"/>皖公网安备 34182102000267号</a>
+  </div>
+  <!-- powered by -->
+  <div class="flex items-center gap-2">
+    <span>Powered by</span>
+    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <span>&</span>
+    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+  </div>
+
+</footer>
+
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+    <span class="flex justify-center items-center text-sm">
+      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <span id="scrollpercent"><span>0</span> %</span>
+    </span>
+  </div>
+  
+<script src="/js/main.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      const mapleCount = "10";
+      const speed = "0.5";
+      const mapleEl = document.getElementById("maple");
+      const maples = Array.from({ length: mapleCount }).map(() => {
+        const maple = document.createElement("div");
+        const scale = Math.random() * 0.5 + 0.5;
+        const offset = Math.random() * 2 - 1;
+        const x = Math.random() * mapleEl.clientWidth;
+        const y = -Math.random() * mapleEl.clientHeight;
+        const duration = 10 / speed;
+        const delay = -duration;
+        maple.className = "maple";
+        maple.style.width = `${24 * scale}px`;
+        maple.style.height = `${24 * scale}px`;
+        maple.style.left = `${x}px`;
+        maple.style.top = `${y}px`;
+        maple.style.setProperty("--maple-fall-offset", offset);
+        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
+        maple.style.animation = `fall ${duration}s linear infinite`;
+        maple.style.animationDelay = `${delay}s`;
+        mapleEl.appendChild(maple)
+        return maple
+      })
+    });
+  </script>
+  
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
+</body>
+
+</html>
