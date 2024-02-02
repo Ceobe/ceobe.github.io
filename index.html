@@ -1,470 +1,225 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  viewport-fit=cover" name="viewport" />
+    <meta name="description" content="" />
+    <meta name="hexo-theme-A4" content="v1.8.2" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>知行合一 | 知是行之始，行是知之成。</title>
+
+    
+        
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
 
 
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
 
-<!-- Baidu Analytics -->
-<script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?8db65b410584b6fe3953c2487a699f98";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
-<!-- End Baidu Analytics -->
+            
+<link rel="stylesheet" href="/css/unicons.css">
 
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <meta name="author" content="k k">
-
-
-  <meta name="subtitle" content="知是行之始，行是知之成。">
-
-
-
-
-<title>知行合一</title>
-
-
-
-<link rel="icon" href="/favicon.png">
-
-
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
-
-
-
-<script src="/lib/jquery.min.js"></script>
-
-
-<script src="/lib/iconify-icon.min.js"></script>
-
-
-<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-  };
-</script>
-
-
-<script src="/lib/nprogress/nprogress.js"></script>
-
-<script>
-  $(document).ready(() => {
-    NProgress.configure({
-      showSpinner: false,
-    });
-    NProgress.start();
-    $("#nprogress .bar").css({
-      background: "#de7441",
-    });
-    $("#nprogress .peg").css({
-      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
-    });
-    $("#nprogress .spinner-icon").css({
-      "border-top-color": "#de7441",
-      "border-left-color": "#de7441",
-    });
-    setTimeout(function () {
-      NProgress.done();
-      $(".fade").removeClass("out");
-    }, 800);
-  });
-</script>
-
-<script>
-  (function () {
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-    if (setting === "dark" || (prefersDark && setting !== "light"))
-      document.documentElement.classList.toggle("dark", true);
-    let isDark = document.documentElement.classList.contains("dark");
-  })();
-
-  $(document).ready(function () {
-    // init icon
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = document.documentElement.classList.contains("dark");
-    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
-
-    function toggleGiscusTheme() {
-      const isDark = document.documentElement.classList.contains("dark");
-      const giscusFrame = document.querySelector("iframe.giscus-frame");
-      if (giscusFrame) {
-        giscusFrame.contentWindow.postMessage(
-          {
-            giscus: {
-              setConfig: {
-                theme: isDark ? "dark" : "light",
-              },
-            },
-          },
-          "https://giscus.app"
-        );
-      }
-    }
-
-
-    // toggle dark mode
-    function toggleDark() {
-      let isDark = document.documentElement.classList.contains("dark");
-      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-      isDark = !isDark;
-      document.documentElement.classList.toggle("dark", isDark);
-      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
-      if (prefersDark === isDark) {
-        localStorage.setItem("hexo-color-scheme", "auto");
-      } else {
-        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
-      }
-      toggleGiscusTheme();
-    }
-    $("#toggle-dark").click(toggleDark);
-
-    // listen dark mode change
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-        if (setting === "auto") {
-          document.documentElement.classList.toggle("dark", e.matches);
-          $("#theme-icon").attr(
-            "icon",
-            e.matches ? "ri:moon-line" : "ri:sun-line"
-          );
-          toggleGiscusTheme();
-        }
-      });
-  });
-</script>
-
-
-
+        
+    
+    
 
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
-  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
-  <div class="max-auto">
-    <nav class="flex items-center text-base">
-      <a href="/" class="group">
-        <h2 class="font-medium tracking-tighterp text-l p-2">
-          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
-          知行合一
-        </h2>
-      </a>
-      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+    
+    
+    <body>
         
-      </div>
-      <div class="flex-1"></div>
-      <div class="flex items-center gap-3">
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
         
-          <a class="hidden sm:flex" href="/archives">Posts</a>
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom index-main">
+                    <!-- 这个header就是特指index的头部 -->
+
+
+
+    <div style="text-align: left;">
+
+        <a class="index-logo" href="/">知行合一</a>
+        <div style="margin-bottom: 12px;"> 
+            
+                
+                    首页
+                
+            
+                
+                    &nbsp / &nbsp<a href="/list/">文章</a>
+                
+            
+                
+                    &nbsp / &nbsp<a href="/about/">关于</a>
+                
+            
+                
+                    &nbsp / &nbsp<a href="/picture/">图片</a>
+                
+            
+                
+                    &nbsp / &nbsp<a href="/suibi/">随笔</a>
+                
+            
+        </div>
+    </div>
+
+                    <div class="post-main">
+    
+    
+       
+       
+       
+            <div class="post-md">
+                <h5 id="▶正在做的事"><a href="#▶正在做的事" class="headerlink" title="▶正在做的事"></a>▶正在做的事</h5><ul>
+<li>公务员备考</li>
+<li>房子装修</li>
+<li>努力工作，提升专业知识水平</li>
+</ul>
+<h5 id="😬想做的事"><a href="#😬想做的事" class="headerlink" title="😬想做的事"></a>😬想做的事</h5><ul>
+<li>种花，种很多的花</li>
+<li>看海</li>
+<li>去南京红森动物园</li>
+<li>取得无人机驾驶许可证</li>
+<li>提高无人机拍摄水平</li>
+<li>提高摄影摄像水平</li>
+</ul>
+<h5 id="✅已经完成的事"><a href="#✅已经完成的事" class="headerlink" title="✅已经完成的事"></a>✅已经完成的事</h5><ul>
+<li>啊这，还没有吗？</li>
+</ul>
+<h5 id="⭐年度任务（0-x2F-2）"><a href="#⭐年度任务（0-x2F-2）" class="headerlink" title="⭐年度任务（0&#x2F;2）"></a>⭐年度任务（0&#x2F;2）</h5><ul>
+<li>公务员上岸</li>
+<li>找一个志趣相投的对象</li>
+</ul>
+
+            </div>
+    
+</div> 
+                    <div class="footer">
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+         
+            
+                <span class="index-footer-last-span">皖ICP备2024033061号-1</span>
+            
         
-        
-          
-            <a class="w-5 h-5 hidden sm:flex" title="Weibo" target="_blank" rel="noopener" href="https://weibo.com/u/3213212102">
-              <iconify-icon width="20" icon="ri:weibo-line"></iconify-icon>
-            </a>
-          
-        
-        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
-        </a>
-      </div>
-      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
-        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
-        </span>
-        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
-        </span>
-      </div>
-    </nav>
-  </div>
-</header>
-<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
-  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
-    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
-      
-        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
-          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
-        </li>
-      
-    </ul>
-  </div>
-  <div class="mask bg-black/20 absolute inset-0"></div>
+    
 </div>
 
-  <main class="pt-14">
-    <section class="px-6 max-w-prose mx-auto gap-12 grid grid-cols-1">
-  <div class="flex flex-col h-48 items-center justify-center">
-    <h1 class="site-title text-4xl leading-relaxed">
-      知行合一
-    </h1>
-    <p class="text-gray-500 mt-2">
-      知是行之始，行是知之成。
-    </p>
-  </div>
-  
-  
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
     
     
-      <div class="relative pointer-events-none">
-        <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold">2024</span>
-      </div>
     
-    <a style="--stagger:0" href="/2024/01/28/%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4%E4%BF%83%E8%BF%9B%E6%B3%95/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          乡村振兴促进法
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          1月 28
-          ·
-          31 min
-        </p>
-      </section>
-    </a>
-  
+<script src="/js/highlight.min.js"></script>
+
     
-    
-      <div class="relative pointer-events-none">
-        <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold">2023</span>
-      </div>
-    
-    <a style="--stagger:1" href="/2023/10/17/%E3%80%8A%E5%85%9A%E7%AB%A0%E3%80%8B/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          《党章》
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          10月 17
-          ·
-          61 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:2" href="/2023/10/16/%E5%85%9A%E5%8A%A1%E5%85%9A%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9F%A5%E8%AF%86/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          党务党建工作知识
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          10月 16
-          ·
-          16 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:3" href="/2023/10/16/%E4%B8%AD%E5%9B%BD%E5%BC%8F%E7%8E%B0%E4%BB%A3%E5%8C%96/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          中国式现代化
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          10月 16
-          ·
-          2 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:4" href="/2023/10/16/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E5%86%9C%E6%9D%91%E5%9F%BA%E5%B1%82%E7%BB%84%E7%BB%87%E5%B7%A5%E4%BD%9C%E6%9D%A1%E4%BE%8B%E3%80%8B/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          《中国共产党农村基层组织工作条例》
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          10月 16
-          ·
-          23 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:5" href="/2023/10/16/%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B950%E6%9D%A1/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          乡村振兴高频考点 50 条
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          10月 16
-          ·
-          7 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:6" href="/2023/10/16/%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B420%E5%AD%97%E6%80%BB%E6%96%B9%E9%92%88%E3%80%815%E4%B8%AA%E6%8C%AF%E5%85%B4%E3%80%813%E6%AD%A5%E8%B5%B0%E3%80%817%E4%B8%AA%E5%9D%9A%E6%8C%81/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          乡村振兴20字总方针、5个振兴、3步走、7个坚持
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          10月 16
-          ·
-          6 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:7" href="/2023/10/16/%E4%BA%8C%E5%8D%81%E5%A4%A7%E6%8A%A5%E5%91%8A%E5%85%A8%E6%96%87/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          二十大报告全文
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          10月 16
-          ·
-          98 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:8" href="/2023/05/06/%E6%91%98%E8%A6%81%E5%A6%82%E4%BD%95%E5%86%99/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          摘要如何写
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          5月 06
-          ·
-          1 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:9" href="/2023/04/12/%E7%99%BE%E5%8C%96%E5%88%86/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          百化分
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          4月 12
-          ·
-          1 min
-        </p>
-      </section>
-    </a>
-  
-</section>
+<script src="/js/highlightjs-line-numbers.js"></script>
 
 
-  </main>
-  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
-  <!-- 访问统计busuanzi 未启用-->
-  <!--
--->
-  <!-- 备案信息 -->
-  <div class="flex items-center gap-2">
-    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">皖ICP备2024033061号-1</a>
-  </div>
-  <!-- powered by -->
-  <div class="flex items-center gap-2">
-    <span>Powered by</span>
-    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
-    <span>&</span>
-    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
-  </div>
+    
+<script src="/js/randomHeaderContent.js"></script>
 
-</footer>
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
 
-  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
-    <span class="flex justify-center items-center text-sm">
-      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
-      <span id="scrollpercent"><span>0</span> %</span>
-    </span>
-  </div>
-  
-<script src="/js/main.js"></script>
+    
+
+    
 
 
 
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
 
-  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
-</body>
 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+
+
+    <!--暗黑模式-->
+    <script src="/js/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+        const options = {
+            bottom: '53px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '42px', // default: 'unset'
+            time: '0.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+  
 </html>

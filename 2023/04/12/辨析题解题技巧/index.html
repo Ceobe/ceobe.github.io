@@ -1,416 +1,257 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  viewport-fit=cover" name="viewport" />
+    <meta name="description" content="辨析题解题技巧" />
+    <meta name="hexo-theme-A4" content="v1.8.2" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>知行合一 | 知是行之始，行是知之成。</title>
+
+    
+        
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
 
 
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
 
-<!-- Baidu Analytics -->
-<script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?8db65b410584b6fe3953c2487a699f98";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
-<!-- End Baidu Analytics -->
+            
+<link rel="stylesheet" href="/css/unicons.css">
 
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <meta name="author" content="k k">
-
-
-  <meta name="subtitle" content="知是行之始，行是知之成。">
-
-
-
-
-<title>辨析题解题技巧 | 知行合一</title>
-
-
-
-<link rel="icon" href="/favicon.png">
-
-
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
-
-
-
-<script src="/lib/jquery.min.js"></script>
-
-
-<script src="/lib/iconify-icon.min.js"></script>
-
-
-<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-  };
-</script>
-
-
-<script src="/lib/nprogress/nprogress.js"></script>
-
-<script>
-  $(document).ready(() => {
-    NProgress.configure({
-      showSpinner: false,
-    });
-    NProgress.start();
-    $("#nprogress .bar").css({
-      background: "#de7441",
-    });
-    $("#nprogress .peg").css({
-      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
-    });
-    $("#nprogress .spinner-icon").css({
-      "border-top-color": "#de7441",
-      "border-left-color": "#de7441",
-    });
-    setTimeout(function () {
-      NProgress.done();
-      $(".fade").removeClass("out");
-    }, 800);
-  });
-</script>
-
-<script>
-  (function () {
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-    if (setting === "dark" || (prefersDark && setting !== "light"))
-      document.documentElement.classList.toggle("dark", true);
-    let isDark = document.documentElement.classList.contains("dark");
-  })();
-
-  $(document).ready(function () {
-    // init icon
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = document.documentElement.classList.contains("dark");
-    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
-
-    function toggleGiscusTheme() {
-      const isDark = document.documentElement.classList.contains("dark");
-      const giscusFrame = document.querySelector("iframe.giscus-frame");
-      if (giscusFrame) {
-        giscusFrame.contentWindow.postMessage(
-          {
-            giscus: {
-              setConfig: {
-                theme: isDark ? "dark" : "light",
-              },
-            },
-          },
-          "https://giscus.app"
-        );
-      }
-    }
-
-
-    // toggle dark mode
-    function toggleDark() {
-      let isDark = document.documentElement.classList.contains("dark");
-      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-      isDark = !isDark;
-      document.documentElement.classList.toggle("dark", isDark);
-      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
-      if (prefersDark === isDark) {
-        localStorage.setItem("hexo-color-scheme", "auto");
-      } else {
-        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
-      }
-      toggleGiscusTheme();
-    }
-    $("#toggle-dark").click(toggleDark);
-
-    // listen dark mode change
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-        if (setting === "auto") {
-          document.documentElement.classList.toggle("dark", e.matches);
-          $("#theme-icon").attr(
-            "icon",
-            e.matches ? "ri:moon-line" : "ri:sun-line"
-          );
-          toggleGiscusTheme();
-        }
-      });
-  });
-</script>
-
-
-
+        
+    
+    
 
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
-  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
-  <div class="max-auto">
-    <nav class="flex items-center text-base">
-      <a href="/" class="group">
-        <h2 class="font-medium tracking-tighterp text-l p-2">
-          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="知行合一" />
-          知行合一
-        </h2>
-      </a>
-      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        辨析题解题技巧
-      </div>
-      <div class="flex-1"></div>
-      <div class="flex items-center gap-3">
+    
+    
+    <body>
         
-          <a class="hidden sm:flex" href="/archives">Posts</a>
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
         
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/favicon.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">知行合一</a> 
+            <span class="description"></span> 
+        </div>
         
-          
-            <a class="w-5 h-5 hidden sm:flex" title="Weibo" target="_blank" rel="noopener" href="https://weibo.com/u/3213212102">
-              <iconify-icon width="20" icon="ri:weibo-line"></iconify-icon>
-            </a>
-          
+    </div>
+    
+   
+    <ul class="nav">
         
-        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
-        </a>
-      </div>
-      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
-        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
-        </span>
-        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
-        </span>
-      </div>
-    </nav>
-  </div>
-</header>
-<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
-  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
-    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
-      
-        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
-          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
-        </li>
-      
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/picture/">图片</a></li>
+            
+        
+            
+                <li><a href="/suibi/">随笔</a></li>
+            
+        
     </ul>
-  </div>
-  <div class="mask bg-black/20 absolute inset-0"></div>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            辨析题解题技巧
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BE%A8%E6%9E%90%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="post-toc-text">辨析题解题思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BE%A8%E6%9E%90%E9%A2%98%EF%BC%9A%E5%AF%B9%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%8F%A5%E5%AD%90%E5%81%9A%E5%87%BA%E6%AD%A3%E8%AF%AF%E5%88%A4%E6%96%AD%EF%BC%8C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E7%AE%80%E5%8D%95%E8%A7%A3%E6%9E%90%EF%BC%8C%E4%B8%8D%E8%B6%85%E8%BF%87-XX-%E5%AD%97%E3%80%82"><span class="post-toc-text">辨析题：对下面的句子做出正误判断，并进行简单解析，不超过 XX 字。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AD%A3%E8%AF%AF%E5%88%A4%E6%96%AD%EF%BC%9A%E6%B3%A8%E6%84%8F%E8%81%94%E7%B3%BB%E4%B8%8A%E4%B8%8B%E6%96%87%E7%90%86%E8%A7%A3%E6%84%8F%E6%80%9D"><span class="post-toc-text">正误判断：注意联系上下文理解意思</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AD%94%E6%A1%88%E7%BB%84%E7%BB%87%EF%BC%9A%E6%AD%A3%E8%AF%AF%E5%88%A4%E6%96%AD-%EF%BC%88%E6%A6%82%E6%8B%AC%E9%A2%98%E7%9B%AE%E8%A1%A8%E8%BF%B0%EF%BC%89-%E5%AE%9A%E4%BD%8D%E5%8E%9F%E6%96%87%E6%89%80%E5%9C%A8%E6%AE%B5%E8%90%BD-%E6%89%BE%E5%87%BA%E5%8E%9F%E5%8F%A5%E8%BF%9B%E8%A1%8C%E5%AF%B9%E6%AF%94-%E5%BE%97%E5%87%BA%E7%BB%93%E8%AE%BA"><span class="post-toc-text">答案组织：正误判断+（概括题目表述）+定位原文所在段落+找出原句进行对比+得出结论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E3%80%90%E4%BE%8B%E3%80%91%E5%AF%B9%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%8F%A5%E5%AD%90%E5%81%9A%E5%87%BA%E6%AD%A3%E8%AF%AF%E5%88%A4%E6%96%AD%EF%BC%8C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E7%AE%80%E5%8D%95%E8%A7%A3%E6%9E%90%EF%BC%8C%E4%B8%8D%E8%B6%85%E8%BF%87-150-%E5%AD%97%E3%80%82"><span class="post-toc-text">【例】对下面的句子做出正误判断，并进行简单解析，不超过 150 字。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88"><span class="post-toc-text">参考答案</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%94%99%E8%AF%AF%E3%80%82%E9%80%89%E9%A1%B9%E6%84%8F%E4%B8%BA%EF%BC%9A%E5%AE%89%E5%BE%B7%E7%83%88%C2%B7%E6%B5%B7%E5%A7%86%E5%92%8C%E5%BA%B7%E6%96%AF%E5%9D%A6%E4%B8%81%C2%B7%E8%AF%BA%E6%B2%83%E8%82%96%E6%B4%9B%E5%A4%AB%E8%8E%B7%E5%BE%97%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%A5%96%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%98%AF%E6%8E%A8%E7%BF%BB%E4%BA%86%E7%83%AD%E5%8A%9B%E5%AD%A6%E6%B6%A8%E8%90%BD%E7%90%86%E8%AE%BA%E4%B8%AD%E2%80%9C%E7%9F%B3%E5%A2%A8%E7%83%AF%E6%97%A0%E6%B3%95%E5%AD%98%E5%9C%A8%E4%BA%8E%E8%87%AA%E7%84%B6%E7%95%8C%E2%80%9D%E7%9A%84%E4%BC%A0%E7%BB%9F%E8%AE%A4%E7%9F%A5%E3%80%82%E8%80%8C%E6%A0%B9%E6%8D%AE%E5%8E%9F%E6%96%87%E7%AC%AC-1-%E6%AE%B5%EF%BC%8C%E4%B8%A4%E4%BD%8D%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%8E%B7%E5%A5%96%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%98%AF%E5%8F%91%E7%8E%B0%E4%BA%86%E6%95%B4%E6%95%B0%E9%87%8F%E5%AD%90%E9%9C%8D%E5%B0%94%E6%95%88%E5%BA%94%E5%8F%8A%E5%B8%B8%E6%B8%A9%E6%9D%A1%E4%BB%B6%E4%B8%8B%E7%9A%84%E9%87%8F%E5%AD%90%E9%9C%8D%E5%B0%94%E6%95%88%E5%BA%94%EF%BC%8C%E8%BF%9B%E8%80%8C%E4%B8%BA%E7%9F%B3%E5%A2%A8%E7%83%AF%E5%B7%A5%E4%B8%9A%E5%8C%96%E7%94%9F%E4%BA%A7%E5%81%9A%E5%87%BA%E4%BA%86%E8%B4%A1%E7%8C%AE%E3%80%82%E9%80%89%E9%A1%B9%E4%B8%8E%E5%8E%9F%E6%96%87%E4%B8%8D%E7%AC%A6%E3%80%82"><span class="post-toc-text">错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第 1 段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。</span></a></li></ol></li></ol>
+            
+        
+        <h3 id="辨析题解题思路"><a href="#辨析题解题思路" class="headerlink" title="辨析题解题思路"></a>辨析题解题思路</h3><h3 id="辨析题：对下面的句子做出正误判断，并进行简单解析，不超过-XX-字。"><a href="#辨析题：对下面的句子做出正误判断，并进行简单解析，不超过-XX-字。" class="headerlink" title="辨析题：对下面的句子做出正误判断，并进行简单解析，不超过 XX 字。"></a>辨析题：对下面的句子做出正误判断，并进行简单解析，不超过 XX 字。</h3><h3 id="正误判断：注意联系上下文理解意思"><a href="#正误判断：注意联系上下文理解意思" class="headerlink" title="正误判断：注意联系上下文理解意思"></a>正误判断：注意联系上下文理解意思</h3><h3 id="答案组织：正误判断-（概括题目表述）-定位原文所在段落-找出原句进行对比-得出结论"><a href="#答案组织：正误判断-（概括题目表述）-定位原文所在段落-找出原句进行对比-得出结论" class="headerlink" title="答案组织：正误判断+（概括题目表述）+定位原文所在段落+找出原句进行对比+得出结论"></a>答案组织：正误判断+（概括题目表述）+定位原文所在段落+找出原句进行对比+得出结论</h3><h4 id="【例】对下面的句子做出正误判断，并进行简单解析，不超过-150-字。"><a href="#【例】对下面的句子做出正误判断，并进行简单解析，不超过-150-字。" class="headerlink" title="【例】对下面的句子做出正误判断，并进行简单解析，不超过 150 字。"></a>【例】对下面的句子做出正误判断，并进行简单解析，不超过 150 字。</h4><p>安德烈·海姆和康斯坦丁·诺沃肖洛夫因为推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知，还获得了 2010 年度诺贝尔物理学奖。<br>石墨烯（Graphene）是一种从石墨材料中剥离出来，由单层碳原子构成的六角形蜂巢晶格的平面二维碳材料。实际上，石墨烯本来就存在于自然界中，只是难以剥离出单层结构。曾经，物理学家普遍认为，热力学膨胀不允许任何二维晶体在有限温度下存在，石墨烯不过是一种假设性结构。受此理论影响，科学家们对从石墨中分离出单层独立存在的石墨烯持悲观态度。2004 年，英国曼彻斯特大学安德烈·海姆和康斯坦丁·诺沃肖洛夫的研究改变了人们的认知，他们发现了一种得到石墨薄片的简单方法——从高定向热解石墨中剥离出石墨片，将薄片的两面粘在一种特殊胶带上，撕开胶带，就能把石墨片一分为二，不断重复这样的操作，最后就得到了仅由一层碳原子构成的薄片，即石墨烯，该方法及单层石墨烯的获取震撼了凝聚体物理学界。随后三年内，安德烈·海姆和康斯坦丁·诺沃肖洛夫在单层和双层石墨烯体系中分别发现了整数量子霍尔效应及常温条件下的量子霍尔效应，这为石墨烯的工业化生产进一步铺垫了理论和方法道路，两人也因此获得了 2010 年度诺贝尔物理学奖。</p>
+<h4 id="参考答案"><a href="#参考答案" class="headerlink" title="参考答案"></a>参考答案</h4><h4 id="错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第-1-段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。"><a href="#错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第-1-段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。" class="headerlink" title="错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第 1 段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。"></a>错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第 1 段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。</h4>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2023-04-12</span>
+            
+            
+             
+        
+        </i>
+    </div>
+    
+        
+
+     
 </div>
 
-  <main class="pt-14">
-    <!-- css -->
-
-<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
 
 
-<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
-
-<!-- toc -->
-
-  <!-- tocbot -->
-<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
-
-
-<section class="px-6 max-w-prose mx-auto md:px-0">
-  <!-- header -->
-  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
-    <div class="pt-4 md:pt-6">
-      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        辨析题解题技巧
-      </h1>
-      <div>
-        <section class="flex items-center gap-3 text-sm">
-          <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
-            <time>2023-05-06</time>
-          </span>
-          <span class="text-gray-400">·</span>
-          <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
-            <span>2 min</span>
-          </span>
-          <span class="text-gray-400">·</span>
-          <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>691 words</span>
-          </span>
-          
-        </section>
-      </div>
-    </div>
-  </header>
-  <!-- content -->
-  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h3 id="辨析题解题思路"><a href="#辨析题解题思路" class="headerlink" title="辨析题解题思路"></a>辨析题解题思路</h3><h3 id="辨析题：对下面的句子做出正误判断，并进行简单解析，不超过-XX-字。"><a href="#辨析题：对下面的句子做出正误判断，并进行简单解析，不超过-XX-字。" class="headerlink" title="辨析题：对下面的句子做出正误判断，并进行简单解析，不超过 XX 字。"></a>辨析题：对下面的句子做出正误判断，并进行简单解析，不超过 XX 字。</h3><h3 id="正误判断：注意联系上下文理解意思"><a href="#正误判断：注意联系上下文理解意思" class="headerlink" title="正误判断：注意联系上下文理解意思"></a>正误判断：注意联系上下文理解意思</h3><h3 id="答案组织：正误判断-（概括题目表述）-定位原文所在段落-找出原句进行对比-得出结论"><a href="#答案组织：正误判断-（概括题目表述）-定位原文所在段落-找出原句进行对比-得出结论" class="headerlink" title="答案组织：正误判断+（概括题目表述）+定位原文所在段落+找出原句进行对比+得出结论"></a>答案组织：正误判断+（概括题目表述）+定位原文所在段落+找出原句进行对比+得出结论</h3><h4 id="【例】对下面的句子做出正误判断，并进行简单解析，不超过-150-字。"><a href="#【例】对下面的句子做出正误判断，并进行简单解析，不超过-150-字。" class="headerlink" title="【例】对下面的句子做出正误判断，并进行简单解析，不超过 150 字。"></a>【例】对下面的句子做出正误判断，并进行简单解析，不超过 150 字。</h4><p>安德烈·海姆和康斯坦丁·诺沃肖洛夫因为推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知，还获得了 2010 年度诺贝尔物理学奖。<br>石墨烯（Graphene）是一种从石墨材料中剥离出来，由单层碳原子构成的六角形蜂巢晶格的平面二维碳材料。实际上，石墨烯本来就存在于自然界中，只是难以剥离出单层结构。曾经，物理学家普遍认为，热力学膨胀不允许任何二维晶体在有限温度下存在，石墨烯不过是一种假设性结构。受此理论影响，科学家们对从石墨中分离出单层独立存在的石墨烯持悲观态度。2004 年，英国曼彻斯特大学安德烈·海姆和康斯坦丁·诺沃肖洛夫的研究改变了人们的认知，他们发现了一种得到石墨薄片的简单方法——从高定向热解石墨中剥离出石墨片，将薄片的两面粘在一种特殊胶带上，撕开胶带，就能把石墨片一分为二，不断重复这样的操作，最后就得到了仅由一层碳原子构成的薄片，即石墨烯，该方法及单层石墨烯的获取震撼了凝聚体物理学界。随后三年内，安德烈·海姆和康斯坦丁·诺沃肖洛夫在单层和双层石墨烯体系中分别发现了整数量子霍尔效应及常温条件下的量子霍尔效应，这为石墨烯的工业化生产进一步铺垫了理论和方法道路，两人也因此获得了 2010 年度诺贝尔物理学奖。</p>
-<h4 id="参考答案"><a href="#参考答案" class="headerlink" title="参考答案"></a>参考答案</h4><h4 id="错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第-1-段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。"><a href="#错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第-1-段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。" class="headerlink" title="错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第 1 段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。"></a>错误。选项意为：安德烈·海姆和康斯坦丁·诺沃肖洛夫获得诺贝尔奖的原因是推翻了热力学涨落理论中“石墨烯无法存在于自然界”的传统认知。而根据原文第 1 段，两位科学家获奖的原因是发现了整数量子霍尔效应及常温条件下的量子霍尔效应，进而为石墨烯工业化生产做出了贡献。选项与原文不符。</h4>
-  </article>
-  <!-- tag -->
-  <div class="mt-12 pt-6 border-t border-gray-200">
+                                      
+                    
+                    
+                    <div class="footer">
     
-  </div>
-  <!-- prev and next -->
-  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
-    <div>
-      
-        <a href="/2023/04/12/%E9%80%BB%E8%BE%91%E8%AE%BA%E8%AF%81%E7%AC%94%E8%AE%B0/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          逻辑论证笔记
-        </a>
-      
-    </div>
-    <div>
-      
-    </div>
-  </div>
-  <!-- comment -->
-  <div class="article-comments mt-12">
+        <span> 
+            © 2024 ZXHY 
+
+            
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>知是行之始，行是始之成</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+    
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/highlightjs-line-numbers.js"></script>
+
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
     
 
-  </div>
-</section>
-<!-- js inspect -->
-
-<script src="/lib/clipboard.min.js"></script>
+    
 
 
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-  });
-</script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-  $(document).ready(() => {
-    const maraidConfig = {
-      theme: "default",
-      logLevel: 3,
-      flowchart: { curve: "linear" },
-      gantt: { axisFormat: "%m/%d/%Y" },
-      sequence: { actorMargin: 50 },
-    };
-    mermaid.initialize(maraidConfig);
-  });
-</script>
-
-
-
-<script src="/lib/fancybox/fancybox.umd.min.js"></script>
 
 <script>
-  $(document).ready(() => {
-    $('.post-content').each(function(i){
-      $(this).find('img').each(function(){
-        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
-        var alt = this.alt;
-        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
-        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
-      });
-      $(this).find('.fancybox').each(function(){
-        $(this).attr('rel', 'article' + i);
-      });
-    });
-
-    Fancybox.bind('[data-fancybox="gallery"]', {
-        // options
-    })
-  })
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
 </script>
 
-<!-- tocbot begin -->
-
-<script src="/lib/tocbot/tocbot.min.js"></script>
-
-<script>
-  $(document).ready(() => {
-      tocbot.init({
-        // Where to render the table of contents.
-        tocSelector: '.post-toc',
-        // Where to grab the headings to build the table of contents.
-        contentSelector: '.post-content',
-        // Which headings to grab inside of the contentSelector element.
-        headingSelector: 'h1, h2, h3',
-        // For headings inside relative or absolute positioned containers within content.
-        hasInnerContainers: true,
-    });
-  })
-</script>
-<!-- tocbot end -->
 
 
-  </main>
-  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
-  <!-- 访问统计busuanzi 未启用-->
-  <!--
--->
-  <!-- 备案信息 -->
-  <div class="flex items-center gap-2">
-    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">皖ICP备2024033061号-1</a>
-  </div>
-  <!-- powered by -->
-  <div class="flex items-center gap-2">
-    <span>Powered by</span>
-    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
-    <span>&</span>
-    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
-  </div>
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
 
-</footer>
 
-  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
-    <span class="flex justify-center items-center text-sm">
-      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
-      <span id="scrollpercent"><span>0</span> %</span>
-    </span>
-  </div>
+    <!--暗黑模式-->
+    <script src="/js/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+        const options = {
+            bottom: '53px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '42px', // default: 'unset'
+            time: '0.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
   
-<script src="/js/main.js"></script>
-
-
-
-
-  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
-</body>
-
 </html>
